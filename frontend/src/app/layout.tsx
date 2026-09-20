@@ -1,12 +1,13 @@
-import { Roboto } from "next/font/google"
+import { Montserrat } from "next/font/google"
 
 import type { Metadata } from "next"
 import "./globals.css"
+import Container from "@/components/Container";
 
-const geistRoboto = Roboto({
+const geistRoboto = Montserrat ({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-  weight: ['300', '400', '500', '700']
+  weight: ['200', '300', '400', '500', '700']
 })
 
 export const metadata: Metadata = {
@@ -16,7 +17,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html className={geistRoboto.variable}>
-      <body className="font-">{children}</body>
+        <body className="bg-black">
+          <Container>
+            {children}
+          </Container>
+        </body>
     </html>
   );
 }
