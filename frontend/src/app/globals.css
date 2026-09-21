@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme inline {
+    --font-sans: var(--font-montserrat), sans-serif;
+
+    --color-bg: #282828
+}
+
 ::-webkit-scrollbar {
     width: 0;
 }

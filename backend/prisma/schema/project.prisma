@@ -1,0 +1,24 @@
+enum Status {
+    COMPLETED
+    IN_DEVELOPMENT
+}
+
+model Project {
+    projectId String @id @default(cuid()) @map("project_id")
+
+    status    Status @default(IN_DEVELOPMENT)
+    imageLogo String @map("iamge_logo")
+    title     String
+    desc      String
+
+    link    String
+    bgColor String
+
+    startOfDevelopment DateTime
+    endOfDevelopment   DateTime?
+
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    @@map("projects")
+}
