@@ -30,8 +30,6 @@ export default function OurProjects(props: Props) {
         })
     }
 
-    console.log(listProjects)
-
     if (!listProjects) return
 
     return (
