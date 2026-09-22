@@ -7,18 +7,43 @@ model Project {
     projectId String @id @default(cuid()) @map("project_id")
 
     status    Status @default(IN_DEVELOPMENT)
-    imageLogo String @map("iamge_logo")
+    imageLogo String @map("image_logo")
     title     String
-    desc      String
+    description       String
 
     link    String
-    bgColor String
+    bgColor String @map("bg_color")
 
-    startOfDevelopment DateTime
-    endOfDevelopment   DateTime?
+    startOfDevelopment DateTime @map("start_of_development")
+    endOfDevelopment   DateTime? @map("end_of_development")
+
+    technologies ProjectTechnology[]
 
     createdAt DateTime @default(now()) @map("created_at")
     updatedAt DateTime @updatedAt @map("updated_at")
 
     @@map("projects")
+}
+
+model ProjectTechnology {
+  projectId    String @map("project_id")
+  project      Project    @relation(fields: [projectId], references: [projectId], onDelete: Cascade)
+  
+  technologyId String @map("technology_id")
+  technology   Technology @relation(fields: [technologyId], references: [technologyId], onDelete: Cascade)
+
+  @@id([projectId, technologyId])
+  @@index([technologyId])        
+  
+}
+
+model Technology {
+  technologyId       String                 @id @default(cuid()) @map("technology_id")
+  name     String              
+  slug     String              @unique
+  iconUrl  String?            @map("icon_url")
+  bgColor    String? @map("bg_color")
+  colorText String? @map("color_text")
+  
+  projects ProjectTechnology[]
 }

@@ -1,10 +1,10 @@
 import { StaticImageData } from "next/image";
 
 import Title from "../UI/Title";
-import Elem from "./Elem";
 
 import unitHack from '../../../public/unit_hack.svg'
 import unitSpi from '../../../public/unit_spi.svg'
+import Elem from "./Elem";
 
 export type Hack = {
     id: number,

@@ -3,10 +3,10 @@
 import Autoplay from 'embla-carousel-autoplay'
 import { useCallback, useEffect } from 'react'
 import Image from 'next/image'
-
-import useEmblaCarousel from 'embla-carousel-react'
-import { cn } from '@/lib/utils'
 import { MoveLeft, MoveRight } from 'lucide-react'
+import useEmblaCarousel from 'embla-carousel-react'
+
+import { cn } from '@/lib/utils'
 import { ElemCarousel } from '../WhatDoing/WhatDoing'
 
 type Props = {
@@ -52,12 +52,12 @@ export function WhatDoingCarousel({ listObj, setSelectedIndex, selectedIndex }: 
             <div className="flex -mx-[30px]">
                 {listObj.map((obj, index) => (
                     <div key={index} className={cn(
-                        "flex-[0_0_calc(100%-60px)] min-w-0 flex gap-x-[50px] h-[450px]",
+                        "flex-[0_0_calc(100%-60px)] flex gap-x-[50px] h-[450px]",
                         'bg-bg rounded-2xl pl-[30px] mx-[30px]'
                     )}>
                         <div className='py-[40px] flex flex-col justify-between'>
                             <div className='text-[36px] text-white'>{obj.title}</div>
-                            <div className='text-[#A3A3A3] text-[18px] w-[600px]'>{obj.desc}</div>
+                            <div className='text-[#A3A3A3] text-[18px]'>{obj.desc}</div>
                             <div className='flex items-center gap-x-[50px] '>
                                 <div className={cn(
                                     'group px-[20px] bg-[#5c5c5c] rounded-2xl',

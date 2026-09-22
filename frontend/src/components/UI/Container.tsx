@@ -7,7 +7,7 @@ export default function Container({ children }: { children: ReactNode }) {
             "mx-auto mt-[20px]",
             '2xl:w-[1520px]',
             'xl:w-[1270px] max-xl:px-[20px]',
-            ''
+            'lg:w-[1010px]'
         )}>
             {children}
         </div>

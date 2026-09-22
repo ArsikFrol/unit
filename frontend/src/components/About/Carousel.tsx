@@ -9,7 +9,7 @@ type Props = {
     interval?: number
 }
 
-export default function AboutCarousel({ images, interval = 3000 }: Props) {
+export default function Carousel({ images, interval = 3000 }: Props) {
 
     const [emblaRef] = useEmblaCarousel(
         { loop: true },
