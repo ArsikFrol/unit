@@ -1,7 +1,14 @@
 import { useRouter } from 'next/navigation';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
-export type TypeRoutes = '/' | '/join'
+import { CreatorSlug } from '../../../backend/prisma/constans';
+
+export type TypeRoutes =
+    '/'
+    | '/join'
+    | '/projects'
+    | `/creator/${CreatorSlug}`
+    | '/#projects'
 
 type TypedRouter = Omit<AppRouterInstance, 'push' | 'replace'> & {
     push: (path: TypeRoutes) => ReturnType<AppRouterInstance['push']>;

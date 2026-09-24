@@ -9,6 +9,16 @@
 * 🟢 You can import this file directly.
 */
 
+export const LinkType = {
+  GITHUB: 'GITHUB',
+  TELEGRAM: 'TELEGRAM',
+  VK: 'VK',
+  PORTFOLIO: 'PORTFOLIO'
+} as const
+
+export type LinkType = (typeof LinkType)[keyof typeof LinkType]
+
+
 export const Status = {
   COMPLETED: 'COMPLETED',
   IN_DEVELOPMENT: 'IN_DEVELOPMENT'

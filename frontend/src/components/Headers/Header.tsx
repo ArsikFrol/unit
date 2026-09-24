@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 
-import logo from '../../public/logo.svg'
+import logo from '../../../public/logo.svg'
 import { useTypedRouter } from "@/hooks/useTypedRouter"
 import { cn } from "@/lib/utils"
 
@@ -44,9 +44,9 @@ export default function Header(props: Props) {
 
     return (
         <div className={cn(
-            "bg-[#c4c4c4] rounded-4xl py-[3px] px-[3px] flex justify-between items-center z-10",
+            "sticky bg-[#c4c4c4] rounded-4xl py-[3px] px-[3px] flex justify-between items-center z-10",
             'w-[calc(100%-20px)] transition-all mx-auto my-[20px]',
-            'sticky top-[20px]',
+            'top-[20px]',
             props.idShowBigElem
                 ? 'opacity-0 -translate-y-[120%] pointer-events-none'
                 : 'opacity-100 translate-y-0 pointer-events-auto'

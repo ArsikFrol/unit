@@ -2,17 +2,18 @@
 
 import { useClickAway } from "react-use"
 import { useRef } from "react"
-import { ArrowUpRight, PlayIcon, X } from "lucide-react"
+import { X } from "lucide-react"
 
 import { useLockScroll } from "@/hooks/useLockScroll"
 import { useEscape } from "@/hooks/useEscape"
 import { cn } from "@/lib/utils"
-import Date from "../Date"
-import Logo from "../Logo"
 import { GetProject } from "@/types/project"
 import { Technologies } from "./Technologies"
 import { Video } from "./Video"
 import { Link } from "./Link"
+import { Creators } from "./Creators"
+import Logo from "@/components/UI/ProjectElem/Logo"
+import Date from "./Date"
 
 type Props = {
     obj: GetProject,
@@ -24,7 +25,7 @@ export default function ProjectModal({ obj, setIdShowBigElem }: Props) {
     const ref = useRef<HTMLDivElement>(null)
 
     useLockScroll()
-    useEscape(() => setIdShowBigElem(''))
+    useEscape(() => { setIdShowBigElem('') })
     useClickAway(ref, () => setIdShowBigElem(''))
 
     return (
@@ -34,17 +35,18 @@ export default function ProjectModal({ obj, setIdShowBigElem }: Props) {
         )}>
             <div className={cn(
                 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
-                'w-[1200px] flex gap-x-[10px] justify-between h-[calc(100vh-100px)] overflow-y-auto'
+                'w-[1200px] flex gap-x-[10px] justify-between max-h-[calc(100vh-100px)] overflow-y-auto'
             )} ref={ref}>
                 <div className="rounded-2xl p-[30px] overflow-auto" style={{ background: obj.bgColor }}>
                     <div className='flex justify-between'>
-                        <Logo obj={obj} />
+                        <Logo obj={obj} isSmall={false} />
                         <Date obj={obj} />
                     </div>
-                    <div className='text-white mt-[20px] mb-[40px]'>{obj.desc}</div>
-                    <Video obj={obj}/>
-                        <Technologies obj={obj}/>
-                        <Link obj={obj}/>
+                    <div className='text-white mt-[20px] mb-[40px]'>{obj.description}</div>
+                    <Video obj={obj} />
+                    <Creators obj={obj} />
+                    <Technologies obj={obj} />
+                    <Link obj={obj} />
                 </div>
                 <div className='group p-[10px] rounded-2xl self-start cursor-pointer' style={{ background: obj.bgColor }}
                     onClick={() => setIdShowBigElem('')}>

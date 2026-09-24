@@ -13,9 +13,53 @@ export async function OPTIONS() {
 export async function GET(req: NextRequest) {
     try {
 
-        const listProjects = await prisma.project.findMany()
+        const listProjects = await prisma.project.findMany({
+            select: {
+                projectId: true,
+                status: true,
+                title: true,
+                description: true,
+                imageLogo: true,
+                bgColor: true,
+                link: true,
+                endOfDevelopment: true,
+                startOfDevelopment: true,
+                technologies: {
+                    select: {
+                        technology: {
+                            select: {
+                                bgColor: true,
+                                colorText: true,
+                                iconUrl: true,
+                                name: true,
+                            }
+                        },
+                    }
+                },
+                creators: {
+                    select: {
+                        creator: {
+                            select: {
+                                avatarUrl: true,
+                                name: true,
+                                slug: true,
+                                bgColor: true,
+                                colorText: true,
+                                role: true
+                            }
+                        }
+                    }
+                }
+            }
+        })
 
-        return NextResponse.json(listProjects,
+        const result = listProjects.map(({ creators, technologies, ...profject }) => ({
+            ...profject,
+            technologies: technologies.map(t => t.technology),
+            creators: creators.map(c => c.creator)
+        }))
+
+        return NextResponse.json(result,
             { headers: CORS_HEADERS }
         )
 

@@ -19,10 +19,10 @@ export default function ActiveElem(props: Props) {
                 [...Array(4)].map((_, index) => {
                     return (
                         <div key={index} className={cn(
-                            'h-[10px] rounded-2xl',
+                            'h-[10px] rounded-2xl transition-all duration-500',
                             props.selectedIndex === index
                                 ? 'bg-[#6a6a6a]'
-                                : 'bg-bg hover:scale-105 transition-transform duration-300 cursor-pointer'
+                                : 'bg-bg hover:scale-105 cursor-pointer'
                         )} onClick={() => clickElem(index)} ></div>
                     )
                 })

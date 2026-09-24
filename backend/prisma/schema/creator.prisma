@@ -1,0 +1,43 @@
+model Creator {
+    creatorId String @id @default(cuid()) @map("creator_id")
+
+    name      String
+    slug      String  @unique
+    role      String?
+    bio       String?
+    avatarUrl String? @map("avatar_url")
+
+    bgColor   String? @map("bg_color")
+    colorText String? @map("color_text")
+
+    projectCreators ProjectCreator[]
+    links           Link[]
+
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    @@map("creators")
+}
+
+enum LinkType {
+    GITHUB
+    TELEGRAM
+    VK
+    PORTFOLIO
+}
+
+model Link {
+    linkId String @id @default(cuid()) @map("link_id")
+
+    url   String
+    type  LinkType
+    order Int      @default(0)
+
+    creatorId String  @map("creator_id")
+    creator   Creator @relation(fields: [creatorId], references: [creatorId], onDelete: Cascade)
+
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    @@map("links")
+}

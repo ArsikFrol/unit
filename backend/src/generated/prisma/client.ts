@@ -31,8 +31,8 @@ export * from "./enums"
  * const prisma = new PrismaClient({
  *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
  * })
- * // Fetch zero or more Projects
- * const projects = await prisma.project.findMany()
+ * // Fetch zero or more Creators
+ * const creators = await prisma.creator.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -42,7 +42,32 @@ export type PrismaClient<LogOpts extends Prisma.LogLevel = never, OmitOpts exten
 export { Prisma }
 
 /**
+ * Model Creator
+ * 
+ */
+export type Creator = Prisma.CreatorModel
+/**
+ * Model Link
+ * 
+ */
+export type Link = Prisma.LinkModel
+/**
  * Model Project
  * 
  */
 export type Project = Prisma.ProjectModel
+/**
+ * Model ProjectTechnology
+ * 
+ */
+export type ProjectTechnology = Prisma.ProjectTechnologyModel
+/**
+ * Model ProjectCreator
+ * 
+ */
+export type ProjectCreator = Prisma.ProjectCreatorModel
+/**
+ * Model Technology
+ * 
+ */
+export type Technology = Prisma.TechnologyModel

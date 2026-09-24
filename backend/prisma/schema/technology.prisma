@@ -1,0 +1,10 @@
+model Technology {
+    technologyId String  @id @default(cuid()) @map("technology_id")
+    name         String
+    slug         String  @unique
+    iconUrl      String? @map("icon_url")
+    bgColor      String? @map("bg_color")
+    colorText    String? @map("color_text")
+
+    projects ProjectTechnology[]
+}

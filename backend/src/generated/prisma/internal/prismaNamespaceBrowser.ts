@@ -51,7 +51,12 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Project: 'Project'
+  Creator: 'Creator',
+  Link: 'Link',
+  Project: 'Project',
+  ProjectTechnology: 'ProjectTechnology',
+  ProjectCreator: 'ProjectCreator',
+  Technology: 'Technology'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -70,12 +75,41 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+export const CreatorScalarFieldEnum = {
+  creatorId: 'creatorId',
+  name: 'name',
+  slug: 'slug',
+  role: 'role',
+  bio: 'bio',
+  avatarUrl: 'avatarUrl',
+  bgColor: 'bgColor',
+  colorText: 'colorText',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CreatorScalarFieldEnum = (typeof CreatorScalarFieldEnum)[keyof typeof CreatorScalarFieldEnum]
+
+
+export const LinkScalarFieldEnum = {
+  linkId: 'linkId',
+  url: 'url',
+  type: 'type',
+  order: 'order',
+  creatorId: 'creatorId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type LinkScalarFieldEnum = (typeof LinkScalarFieldEnum)[keyof typeof LinkScalarFieldEnum]
+
+
 export const ProjectScalarFieldEnum = {
   projectId: 'projectId',
   status: 'status',
   imageLogo: 'imageLogo',
   title: 'title',
-  desc: 'desc',
+  description: 'description',
   link: 'link',
   bgColor: 'bgColor',
   startOfDevelopment: 'startOfDevelopment',
@@ -85,6 +119,34 @@ export const ProjectScalarFieldEnum = {
 } as const
 
 export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]
+
+
+export const ProjectTechnologyScalarFieldEnum = {
+  projectId: 'projectId',
+  technologyId: 'technologyId'
+} as const
+
+export type ProjectTechnologyScalarFieldEnum = (typeof ProjectTechnologyScalarFieldEnum)[keyof typeof ProjectTechnologyScalarFieldEnum]
+
+
+export const ProjectCreatorScalarFieldEnum = {
+  projectId: 'projectId',
+  creatorId: 'creatorId'
+} as const
+
+export type ProjectCreatorScalarFieldEnum = (typeof ProjectCreatorScalarFieldEnum)[keyof typeof ProjectCreatorScalarFieldEnum]
+
+
+export const TechnologyScalarFieldEnum = {
+  technologyId: 'technologyId',
+  name: 'name',
+  slug: 'slug',
+  iconUrl: 'iconUrl',
+  bgColor: 'bgColor',
+  colorText: 'colorText'
+} as const
+
+export type TechnologyScalarFieldEnum = (typeof TechnologyScalarFieldEnum)[keyof typeof TechnologyScalarFieldEnum]
 
 
 export const SortOrder = {

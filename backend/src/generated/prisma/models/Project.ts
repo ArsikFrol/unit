@@ -29,7 +29,7 @@ export type ProjectMinAggregateOutputType = {
   status: $Enums.Status | null
   imageLogo: string | null
   title: string | null
-  desc: string | null
+  description: string | null
   link: string | null
   bgColor: string | null
   startOfDevelopment: Date | null
@@ -43,7 +43,7 @@ export type ProjectMaxAggregateOutputType = {
   status: $Enums.Status | null
   imageLogo: string | null
   title: string | null
-  desc: string | null
+  description: string | null
   link: string | null
   bgColor: string | null
   startOfDevelopment: Date | null
@@ -57,7 +57,7 @@ export type ProjectCountAggregateOutputType = {
   status: number
   imageLogo: number
   title: number
-  desc: number
+  description: number
   link: number
   bgColor: number
   startOfDevelopment: number
@@ -73,7 +73,7 @@ export type ProjectMinAggregateInputType = {
   status?: true
   imageLogo?: true
   title?: true
-  desc?: true
+  description?: true
   link?: true
   bgColor?: true
   startOfDevelopment?: true
@@ -87,7 +87,7 @@ export type ProjectMaxAggregateInputType = {
   status?: true
   imageLogo?: true
   title?: true
-  desc?: true
+  description?: true
   link?: true
   bgColor?: true
   startOfDevelopment?: true
@@ -101,7 +101,7 @@ export type ProjectCountAggregateInputType = {
   status?: true
   imageLogo?: true
   title?: true
-  desc?: true
+  description?: true
   link?: true
   bgColor?: true
   startOfDevelopment?: true
@@ -188,7 +188,7 @@ export type ProjectGroupByOutputType = {
   status: $Enums.Status
   imageLogo: string
   title: string
-  desc: string
+  description: string
   link: string
   bgColor: string
   startOfDevelopment: Date
@@ -223,13 +223,15 @@ export type ProjectWhereInput = {
   status?: Prisma.EnumStatusFilter<"Project"> | $Enums.Status
   imageLogo?: Prisma.StringFilter<"Project"> | string
   title?: Prisma.StringFilter<"Project"> | string
-  desc?: Prisma.StringFilter<"Project"> | string
+  description?: Prisma.StringFilter<"Project"> | string
   link?: Prisma.StringFilter<"Project"> | string
   bgColor?: Prisma.StringFilter<"Project"> | string
   startOfDevelopment?: Prisma.DateTimeFilter<"Project"> | Date | string
   endOfDevelopment?: Prisma.DateTimeNullableFilter<"Project"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Project"> | Date | string
+  technologies?: Prisma.ProjectTechnologyListRelationFilter
+  creators?: Prisma.ProjectCreatorListRelationFilter
 }
 
 export type ProjectOrderByWithRelationInput = {
@@ -237,13 +239,15 @@ export type ProjectOrderByWithRelationInput = {
   status?: Prisma.SortOrder
   imageLogo?: Prisma.SortOrder
   title?: Prisma.SortOrder
-  desc?: Prisma.SortOrder
+  description?: Prisma.SortOrder
   link?: Prisma.SortOrder
   bgColor?: Prisma.SortOrder
   startOfDevelopment?: Prisma.SortOrder
   endOfDevelopment?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  technologies?: Prisma.ProjectTechnologyOrderByRelationAggregateInput
+  creators?: Prisma.ProjectCreatorOrderByRelationAggregateInput
 }
 
 export type ProjectWhereUniqueInput = Prisma.AtLeast<{
@@ -254,13 +258,15 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
   status?: Prisma.EnumStatusFilter<"Project"> | $Enums.Status
   imageLogo?: Prisma.StringFilter<"Project"> | string
   title?: Prisma.StringFilter<"Project"> | string
-  desc?: Prisma.StringFilter<"Project"> | string
+  description?: Prisma.StringFilter<"Project"> | string
   link?: Prisma.StringFilter<"Project"> | string
   bgColor?: Prisma.StringFilter<"Project"> | string
   startOfDevelopment?: Prisma.DateTimeFilter<"Project"> | Date | string
   endOfDevelopment?: Prisma.DateTimeNullableFilter<"Project"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Project"> | Date | string
+  technologies?: Prisma.ProjectTechnologyListRelationFilter
+  creators?: Prisma.ProjectCreatorListRelationFilter
 }, "projectId">
 
 export type ProjectOrderByWithAggregationInput = {
@@ -268,7 +274,7 @@ export type ProjectOrderByWithAggregationInput = {
   status?: Prisma.SortOrder
   imageLogo?: Prisma.SortOrder
   title?: Prisma.SortOrder
-  desc?: Prisma.SortOrder
+  description?: Prisma.SortOrder
   link?: Prisma.SortOrder
   bgColor?: Prisma.SortOrder
   startOfDevelopment?: Prisma.SortOrder
@@ -288,7 +294,7 @@ export type ProjectScalarWhereWithAggregatesInput = {
   status?: Prisma.EnumStatusWithAggregatesFilter<"Project"> | $Enums.Status
   imageLogo?: Prisma.StringWithAggregatesFilter<"Project"> | string
   title?: Prisma.StringWithAggregatesFilter<"Project"> | string
-  desc?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  description?: Prisma.StringWithAggregatesFilter<"Project"> | string
   link?: Prisma.StringWithAggregatesFilter<"Project"> | string
   bgColor?: Prisma.StringWithAggregatesFilter<"Project"> | string
   startOfDevelopment?: Prisma.DateTimeWithAggregatesFilter<"Project"> | Date | string
@@ -302,13 +308,15 @@ export type ProjectCreateInput = {
   status?: $Enums.Status
   imageLogo: string
   title: string
-  desc: string
+  description: string
   link: string
   bgColor: string
   startOfDevelopment: Date | string
   endOfDevelopment?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  technologies?: Prisma.ProjectTechnologyCreateNestedManyWithoutProjectInput
+  creators?: Prisma.ProjectCreatorCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUncheckedCreateInput = {
@@ -316,13 +324,15 @@ export type ProjectUncheckedCreateInput = {
   status?: $Enums.Status
   imageLogo: string
   title: string
-  desc: string
+  description: string
   link: string
   bgColor: string
   startOfDevelopment: Date | string
   endOfDevelopment?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  technologies?: Prisma.ProjectTechnologyUncheckedCreateNestedManyWithoutProjectInput
+  creators?: Prisma.ProjectCreatorUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectUpdateInput = {
@@ -330,13 +340,15 @@ export type ProjectUpdateInput = {
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   imageLogo?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  desc?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
   link?: Prisma.StringFieldUpdateOperationsInput | string
   bgColor?: Prisma.StringFieldUpdateOperationsInput | string
   startOfDevelopment?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endOfDevelopment?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  technologies?: Prisma.ProjectTechnologyUpdateManyWithoutProjectNestedInput
+  creators?: Prisma.ProjectCreatorUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectUncheckedUpdateInput = {
@@ -344,13 +356,15 @@ export type ProjectUncheckedUpdateInput = {
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   imageLogo?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  desc?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
   link?: Prisma.StringFieldUpdateOperationsInput | string
   bgColor?: Prisma.StringFieldUpdateOperationsInput | string
   startOfDevelopment?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endOfDevelopment?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  technologies?: Prisma.ProjectTechnologyUncheckedUpdateManyWithoutProjectNestedInput
+  creators?: Prisma.ProjectCreatorUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateManyInput = {
@@ -358,7 +372,7 @@ export type ProjectCreateManyInput = {
   status?: $Enums.Status
   imageLogo: string
   title: string
-  desc: string
+  description: string
   link: string
   bgColor: string
   startOfDevelopment: Date | string
@@ -372,7 +386,7 @@ export type ProjectUpdateManyMutationInput = {
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   imageLogo?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  desc?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
   link?: Prisma.StringFieldUpdateOperationsInput | string
   bgColor?: Prisma.StringFieldUpdateOperationsInput | string
   startOfDevelopment?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -386,7 +400,7 @@ export type ProjectUncheckedUpdateManyInput = {
   status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
   imageLogo?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  desc?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
   link?: Prisma.StringFieldUpdateOperationsInput | string
   bgColor?: Prisma.StringFieldUpdateOperationsInput | string
   startOfDevelopment?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -400,7 +414,7 @@ export type ProjectCountOrderByAggregateInput = {
   status?: Prisma.SortOrder
   imageLogo?: Prisma.SortOrder
   title?: Prisma.SortOrder
-  desc?: Prisma.SortOrder
+  description?: Prisma.SortOrder
   link?: Prisma.SortOrder
   bgColor?: Prisma.SortOrder
   startOfDevelopment?: Prisma.SortOrder
@@ -414,7 +428,7 @@ export type ProjectMaxOrderByAggregateInput = {
   status?: Prisma.SortOrder
   imageLogo?: Prisma.SortOrder
   title?: Prisma.SortOrder
-  desc?: Prisma.SortOrder
+  description?: Prisma.SortOrder
   link?: Prisma.SortOrder
   bgColor?: Prisma.SortOrder
   startOfDevelopment?: Prisma.SortOrder
@@ -428,7 +442,7 @@ export type ProjectMinOrderByAggregateInput = {
   status?: Prisma.SortOrder
   imageLogo?: Prisma.SortOrder
   title?: Prisma.SortOrder
-  desc?: Prisma.SortOrder
+  description?: Prisma.SortOrder
   link?: Prisma.SortOrder
   bgColor?: Prisma.SortOrder
   startOfDevelopment?: Prisma.SortOrder
@@ -437,22 +451,237 @@ export type ProjectMinOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type StringFieldUpdateOperationsInput = {
-  set?: string
+export type ProjectScalarRelationFilter = {
+  is?: Prisma.ProjectWhereInput
+  isNot?: Prisma.ProjectWhereInput
 }
 
 export type EnumStatusFieldUpdateOperationsInput = {
   set?: $Enums.Status
 }
 
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
-}
-
 export type NullableDateTimeFieldUpdateOperationsInput = {
   set?: Date | string | null
 }
 
+export type ProjectCreateNestedOneWithoutTechnologiesInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutTechnologiesInput, Prisma.ProjectUncheckedCreateWithoutTechnologiesInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutTechnologiesInput
+  connect?: Prisma.ProjectWhereUniqueInput
+}
+
+export type ProjectUpdateOneRequiredWithoutTechnologiesNestedInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutTechnologiesInput, Prisma.ProjectUncheckedCreateWithoutTechnologiesInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutTechnologiesInput
+  upsert?: Prisma.ProjectUpsertWithoutTechnologiesInput
+  connect?: Prisma.ProjectWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ProjectUpdateToOneWithWhereWithoutTechnologiesInput, Prisma.ProjectUpdateWithoutTechnologiesInput>, Prisma.ProjectUncheckedUpdateWithoutTechnologiesInput>
+}
+
+export type ProjectCreateNestedOneWithoutCreatorsInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutCreatorsInput, Prisma.ProjectUncheckedCreateWithoutCreatorsInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutCreatorsInput
+  connect?: Prisma.ProjectWhereUniqueInput
+}
+
+export type ProjectUpdateOneRequiredWithoutCreatorsNestedInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutCreatorsInput, Prisma.ProjectUncheckedCreateWithoutCreatorsInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutCreatorsInput
+  upsert?: Prisma.ProjectUpsertWithoutCreatorsInput
+  connect?: Prisma.ProjectWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ProjectUpdateToOneWithWhereWithoutCreatorsInput, Prisma.ProjectUpdateWithoutCreatorsInput>, Prisma.ProjectUncheckedUpdateWithoutCreatorsInput>
+}
+
+export type ProjectCreateWithoutTechnologiesInput = {
+  projectId?: string
+  status?: $Enums.Status
+  imageLogo: string
+  title: string
+  description: string
+  link: string
+  bgColor: string
+  startOfDevelopment: Date | string
+  endOfDevelopment?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  creators?: Prisma.ProjectCreatorCreateNestedManyWithoutProjectInput
+}
+
+export type ProjectUncheckedCreateWithoutTechnologiesInput = {
+  projectId?: string
+  status?: $Enums.Status
+  imageLogo: string
+  title: string
+  description: string
+  link: string
+  bgColor: string
+  startOfDevelopment: Date | string
+  endOfDevelopment?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  creators?: Prisma.ProjectCreatorUncheckedCreateNestedManyWithoutProjectInput
+}
+
+export type ProjectCreateOrConnectWithoutTechnologiesInput = {
+  where: Prisma.ProjectWhereUniqueInput
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutTechnologiesInput, Prisma.ProjectUncheckedCreateWithoutTechnologiesInput>
+}
+
+export type ProjectUpsertWithoutTechnologiesInput = {
+  update: Prisma.XOR<Prisma.ProjectUpdateWithoutTechnologiesInput, Prisma.ProjectUncheckedUpdateWithoutTechnologiesInput>
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutTechnologiesInput, Prisma.ProjectUncheckedCreateWithoutTechnologiesInput>
+  where?: Prisma.ProjectWhereInput
+}
+
+export type ProjectUpdateToOneWithWhereWithoutTechnologiesInput = {
+  where?: Prisma.ProjectWhereInput
+  data: Prisma.XOR<Prisma.ProjectUpdateWithoutTechnologiesInput, Prisma.ProjectUncheckedUpdateWithoutTechnologiesInput>
+}
+
+export type ProjectUpdateWithoutTechnologiesInput = {
+  projectId?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  imageLogo?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  link?: Prisma.StringFieldUpdateOperationsInput | string
+  bgColor?: Prisma.StringFieldUpdateOperationsInput | string
+  startOfDevelopment?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endOfDevelopment?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  creators?: Prisma.ProjectCreatorUpdateManyWithoutProjectNestedInput
+}
+
+export type ProjectUncheckedUpdateWithoutTechnologiesInput = {
+  projectId?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  imageLogo?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  link?: Prisma.StringFieldUpdateOperationsInput | string
+  bgColor?: Prisma.StringFieldUpdateOperationsInput | string
+  startOfDevelopment?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endOfDevelopment?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  creators?: Prisma.ProjectCreatorUncheckedUpdateManyWithoutProjectNestedInput
+}
+
+export type ProjectCreateWithoutCreatorsInput = {
+  projectId?: string
+  status?: $Enums.Status
+  imageLogo: string
+  title: string
+  description: string
+  link: string
+  bgColor: string
+  startOfDevelopment: Date | string
+  endOfDevelopment?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  technologies?: Prisma.ProjectTechnologyCreateNestedManyWithoutProjectInput
+}
+
+export type ProjectUncheckedCreateWithoutCreatorsInput = {
+  projectId?: string
+  status?: $Enums.Status
+  imageLogo: string
+  title: string
+  description: string
+  link: string
+  bgColor: string
+  startOfDevelopment: Date | string
+  endOfDevelopment?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  technologies?: Prisma.ProjectTechnologyUncheckedCreateNestedManyWithoutProjectInput
+}
+
+export type ProjectCreateOrConnectWithoutCreatorsInput = {
+  where: Prisma.ProjectWhereUniqueInput
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutCreatorsInput, Prisma.ProjectUncheckedCreateWithoutCreatorsInput>
+}
+
+export type ProjectUpsertWithoutCreatorsInput = {
+  update: Prisma.XOR<Prisma.ProjectUpdateWithoutCreatorsInput, Prisma.ProjectUncheckedUpdateWithoutCreatorsInput>
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutCreatorsInput, Prisma.ProjectUncheckedCreateWithoutCreatorsInput>
+  where?: Prisma.ProjectWhereInput
+}
+
+export type ProjectUpdateToOneWithWhereWithoutCreatorsInput = {
+  where?: Prisma.ProjectWhereInput
+  data: Prisma.XOR<Prisma.ProjectUpdateWithoutCreatorsInput, Prisma.ProjectUncheckedUpdateWithoutCreatorsInput>
+}
+
+export type ProjectUpdateWithoutCreatorsInput = {
+  projectId?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  imageLogo?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  link?: Prisma.StringFieldUpdateOperationsInput | string
+  bgColor?: Prisma.StringFieldUpdateOperationsInput | string
+  startOfDevelopment?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endOfDevelopment?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  technologies?: Prisma.ProjectTechnologyUpdateManyWithoutProjectNestedInput
+}
+
+export type ProjectUncheckedUpdateWithoutCreatorsInput = {
+  projectId?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumStatusFieldUpdateOperationsInput | $Enums.Status
+  imageLogo?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  link?: Prisma.StringFieldUpdateOperationsInput | string
+  bgColor?: Prisma.StringFieldUpdateOperationsInput | string
+  startOfDevelopment?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  endOfDevelopment?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  technologies?: Prisma.ProjectTechnologyUncheckedUpdateManyWithoutProjectNestedInput
+}
+
+
+/**
+ * Count Type ProjectCountOutputType
+ */
+
+export type ProjectCountOutputType = {
+  technologies: number
+  creators: number
+}
+
+export type ProjectCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  technologies?: boolean | ProjectCountOutputTypeCountTechnologiesArgs
+  creators?: boolean | ProjectCountOutputTypeCountCreatorsArgs
+}
+
+/**
+ * ProjectCountOutputType without action
+ */
+export type ProjectCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProjectCountOutputType
+   */
+  select?: Prisma.ProjectCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * ProjectCountOutputType without action
+ */
+export type ProjectCountOutputTypeCountTechnologiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProjectTechnologyWhereInput
+}
+
+/**
+ * ProjectCountOutputType without action
+ */
+export type ProjectCountOutputTypeCountCreatorsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProjectCreatorWhereInput
+}
 
 
 export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -460,13 +689,16 @@ export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   status?: boolean
   imageLogo?: boolean
   title?: boolean
-  desc?: boolean
+  description?: boolean
   link?: boolean
   bgColor?: boolean
   startOfDevelopment?: boolean
   endOfDevelopment?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  technologies?: boolean | Prisma.Project$technologiesArgs<ExtArgs>
+  creators?: boolean | Prisma.Project$creatorsArgs<ExtArgs>
+  _count?: boolean | Prisma.ProjectCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["project"]>
 
 export type ProjectSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -474,7 +706,7 @@ export type ProjectSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   status?: boolean
   imageLogo?: boolean
   title?: boolean
-  desc?: boolean
+  description?: boolean
   link?: boolean
   bgColor?: boolean
   startOfDevelopment?: boolean
@@ -488,7 +720,7 @@ export type ProjectSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   status?: boolean
   imageLogo?: boolean
   title?: boolean
-  desc?: boolean
+  description?: boolean
   link?: boolean
   bgColor?: boolean
   startOfDevelopment?: boolean
@@ -502,7 +734,7 @@ export type ProjectSelectScalar = {
   status?: boolean
   imageLogo?: boolean
   title?: boolean
-  desc?: boolean
+  description?: boolean
   link?: boolean
   bgColor?: boolean
   startOfDevelopment?: boolean
@@ -511,17 +743,27 @@ export type ProjectSelectScalar = {
   updatedAt?: boolean
 }
 
-export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"projectId" | "status" | "imageLogo" | "title" | "desc" | "link" | "bgColor" | "startOfDevelopment" | "endOfDevelopment" | "createdAt" | "updatedAt", ExtArgs["result"]["project"]>
+export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"projectId" | "status" | "imageLogo" | "title" | "description" | "link" | "bgColor" | "startOfDevelopment" | "endOfDevelopment" | "createdAt" | "updatedAt", ExtArgs["result"]["project"]>
+export type ProjectInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  technologies?: boolean | Prisma.Project$technologiesArgs<ExtArgs>
+  creators?: boolean | Prisma.Project$creatorsArgs<ExtArgs>
+  _count?: boolean | Prisma.ProjectCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type ProjectIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type ProjectIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Project"
-  objects: {}
+  objects: {
+    technologies: Prisma.$ProjectTechnologyPayload<ExtArgs>[]
+    creators: Prisma.$ProjectCreatorPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     projectId: string
     status: $Enums.Status
     imageLogo: string
     title: string
-    desc: string
+    description: string
     link: string
     bgColor: string
     startOfDevelopment: Date
@@ -922,6 +1164,8 @@ readonly fields: ProjectFieldRefs;
  */
 export interface Prisma__ProjectClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  technologies<T extends Prisma.Project$technologiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$technologiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProjectTechnologyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  creators<T extends Prisma.Project$creatorsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$creatorsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProjectCreatorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -955,7 +1199,7 @@ export interface ProjectFieldRefs {
   readonly status: Prisma.FieldRef<"Project", 'Status'>
   readonly imageLogo: Prisma.FieldRef<"Project", 'String'>
   readonly title: Prisma.FieldRef<"Project", 'String'>
-  readonly desc: Prisma.FieldRef<"Project", 'String'>
+  readonly description: Prisma.FieldRef<"Project", 'String'>
   readonly link: Prisma.FieldRef<"Project", 'String'>
   readonly bgColor: Prisma.FieldRef<"Project", 'String'>
   readonly startOfDevelopment: Prisma.FieldRef<"Project", 'DateTime'>
@@ -979,6 +1223,10 @@ export type ProjectFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Inter
    */
   omit?: Prisma.ProjectOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProjectInclude<ExtArgs> | null
+  /**
    * Filter, which Project to fetch.
    */
   where: Prisma.ProjectWhereUniqueInput
@@ -997,6 +1245,10 @@ export type ProjectFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extension
    */
   omit?: Prisma.ProjectOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProjectInclude<ExtArgs> | null
+  /**
    * Filter, which Project to fetch.
    */
   where: Prisma.ProjectWhereUniqueInput
@@ -1014,6 +1266,10 @@ export type ProjectFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Omit specific fields from the Project
    */
   omit?: Prisma.ProjectOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProjectInclude<ExtArgs> | null
   /**
    * Filter, which Project to fetch.
    */
@@ -1063,6 +1319,10 @@ export type ProjectFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions
    */
   omit?: Prisma.ProjectOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProjectInclude<ExtArgs> | null
+  /**
    * Filter, which Project to fetch.
    */
   where?: Prisma.ProjectWhereInput
@@ -1110,6 +1370,10 @@ export type ProjectFindManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the Project
    */
   omit?: Prisma.ProjectOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProjectInclude<ExtArgs> | null
   /**
    * Filter, which Projects to fetch.
    */
@@ -1159,6 +1423,10 @@ export type ProjectCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.ProjectOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProjectInclude<ExtArgs> | null
+  /**
    * The data needed to create a Project.
    */
   data: Prisma.XOR<Prisma.ProjectCreateInput, Prisma.ProjectUncheckedCreateInput>
@@ -1206,6 +1474,10 @@ export type ProjectUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the Project
    */
   omit?: Prisma.ProjectOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProjectInclude<ExtArgs> | null
   /**
    * The data needed to update a Project.
    */
@@ -1273,6 +1545,10 @@ export type ProjectUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.ProjectOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProjectInclude<ExtArgs> | null
+  /**
    * The filter to search for the Project to update in case it exists.
    */
   where: Prisma.ProjectWhereUniqueInput
@@ -1299,6 +1575,10 @@ export type ProjectDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.ProjectOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProjectInclude<ExtArgs> | null
+  /**
    * Filter which Project to delete.
    */
   where: Prisma.ProjectWhereUniqueInput
@@ -1319,6 +1599,54 @@ export type ProjectDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 /**
+ * Project.technologies
+ */
+export type Project$technologiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProjectTechnology
+   */
+  select?: Prisma.ProjectTechnologySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ProjectTechnology
+   */
+  omit?: Prisma.ProjectTechnologyOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProjectTechnologyInclude<ExtArgs> | null
+  where?: Prisma.ProjectTechnologyWhereInput
+  orderBy?: Prisma.ProjectTechnologyOrderByWithRelationInput | Prisma.ProjectTechnologyOrderByWithRelationInput[]
+  cursor?: Prisma.ProjectTechnologyWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProjectTechnologyScalarFieldEnum | Prisma.ProjectTechnologyScalarFieldEnum[]
+}
+
+/**
+ * Project.creators
+ */
+export type Project$creatorsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProjectCreator
+   */
+  select?: Prisma.ProjectCreatorSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ProjectCreator
+   */
+  omit?: Prisma.ProjectCreatorOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProjectCreatorInclude<ExtArgs> | null
+  where?: Prisma.ProjectCreatorWhereInput
+  orderBy?: Prisma.ProjectCreatorOrderByWithRelationInput | Prisma.ProjectCreatorOrderByWithRelationInput[]
+  cursor?: Prisma.ProjectCreatorWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProjectCreatorScalarFieldEnum | Prisma.ProjectCreatorScalarFieldEnum[]
+}
+
+/**
  * Project without action
  */
 export type ProjectDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1330,4 +1658,8 @@ export type ProjectDefaultArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Omit specific fields from the Project
    */
   omit?: Prisma.ProjectOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProjectInclude<ExtArgs> | null
 }

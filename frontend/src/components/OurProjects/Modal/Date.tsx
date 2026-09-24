@@ -1,7 +1,7 @@
 import { formatDate } from "@/lib/formatDate"
-import { Project } from "./OurProjects"
+import { GetProject } from "@/types/project"
 
-export default function Date({ obj }: { obj: Project }) {
+export default function Date({ obj }: { obj: GetProject }) {
     return (
         <div className='flex flex-col gap-y-[20px]'>
             <div className=''>

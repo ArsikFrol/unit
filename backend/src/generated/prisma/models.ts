@@ -8,5 +8,10 @@
  *
  * 🟢 You can import this file directly.
  */
+export type * from './models/Creator'
+export type * from './models/Link'
 export type * from './models/Project'
+export type * from './models/ProjectTechnology'
+export type * from './models/ProjectCreator'
+export type * from './models/Technology'
 export type * from './commonInputTypes'

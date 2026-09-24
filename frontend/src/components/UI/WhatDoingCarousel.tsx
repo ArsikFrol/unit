@@ -57,7 +57,7 @@ export function WhatDoingCarousel({ listObj, setSelectedIndex, selectedIndex }: 
                     )}>
                         <div className='py-[40px] flex flex-col justify-between'>
                             <div className='text-[36px] text-white'>{obj.title}</div>
-                            <div className='text-[#A3A3A3] text-[18px]'>{obj.desc}</div>
+                            <div className='text-[#A3A3A3] text-[20px]'>{obj.desc}</div>
                             <div className='flex items-center gap-x-[50px] '>
                                 <div className={cn(
                                     'group px-[20px] bg-[#5c5c5c] rounded-2xl',

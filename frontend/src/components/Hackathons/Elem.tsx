@@ -26,9 +26,8 @@ export default function Elem({ obj }: { obj: Hack }) {
             </div>
             <div className="relative rounded-r-2xl bg-black ">
                 <iframe
-                    src="https://vkvideo.ru/video_ext.php?oid=-237411666&id=456239019&hash=8ed73c96ed290ef1"
+                    src="https://vkvideo.ru/video_ext.php?oid=-237411666&id=456239019&hash=8ed73c96ed290ef1&no_ad=1"
                     className="absolute inset-0 w-full h-full  rounded-r-2xl"
-                    allowFullScreen
                     allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
                     style={{ border: 0 }} />
             </div>
