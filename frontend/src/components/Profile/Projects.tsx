@@ -7,6 +7,7 @@ import { CreatorSlug } from "../../../../backend/prisma/constans"
 import { ClipLoaderUI } from "../UI/ClipLoader"
 import { ProjectElem } from "../UI/ProjectElem/ProjectElem"
 import ProjectModal from "../OurProjects/Modal/ProjectModal"
+import { cn } from "@/lib/utils"
 
 type Props = {
     creatorSlug: CreatorSlug,
@@ -24,8 +25,13 @@ export function Projects(props: Props) {
     return (
         <>
             <div className=''>
-                <div className='text-[25px] text-white'>Проекты в которых {props.creatorName} принимала участие</div>
-                <div className="grid grid-cols-2 gap-x-[20px]">
+                <div className='text-[25px] text-white mb-[20px] text-center'>
+                    Проекты в которых {props.creatorName} принимала участие:
+                </div>
+                <div className={cn(
+                    "grid grid-cols-2 gap-y-[20px] gap-x-[20px] h-[calc(100vh-80px)] overflow-y-auto",
+                    'pb-[20px] px-[5px]'
+                )}>
                     {
                         listProjects
                             .map((obj, index) => <ProjectElem key={index} isSmall obj={obj} setIdShowBigElem={setIdShowBigElem} />)

@@ -1,10 +1,14 @@
+import Image from "next/image";
+
 import { cn } from "@/lib/utils";
 import { GetProject } from "@/types/project";
-import Image from "next/image";
 
 export default function Logo({ obj, isSmall }: { obj: GetProject, isSmall: boolean }) {
     return (
-        <div className='flex gap-x-[40px]'>
+        <div className={cn(
+            'flex',
+            isSmall ? 'gap-x-[20px]' : 'gap-x-[40px]'
+        )}>
             <Image src={obj.imageLogo} alt='' draggable='false' className="rounded-2xl"
                 width={isSmall ? 100 : 160} height={isSmall ? 100 : 160} />
             <div className='flex flex-col gap-y-[10px]'>

@@ -70,7 +70,9 @@ export type CreatorSeed = {
 }
 
 export const listCreators = [
-    { name: 'Аня Смирнова', slug: 'anya-smirnova', role: 'Frontend-разработчик', bio: 'Пишу интерфейсы, которые не бесят.', avatarUrl: '/creators/anya.webp', bgColor: '#E7F1FF', colorText: '#087EA4' },
+    {
+        name: 'Аня Смирнова', slug: 'anya-smirnova', role: 'Frontend-разработчик', bio: 'Фронтенд-разработчик, создаю быстрые, доступные и визуально точные интерфейсы. Специализируюсь на React, Next.js и TypeScript, уделяю особое внимание производительности, семантике и адаптивности. Верю, что хороший UI — это баланс между дизайном, логикой и скоростью загрузки.\n\nРаботал над лендингами, SPA и корпоративными порталами. Умею превращать макеты из Figma в чистый, поддерживаемый код, писать переиспользуемые компоненты и настраивать взаимодействие с REST/GraphQL API. Понимаю принципы SSR/SSG, оптимизации Core Web Vitals и доступности (a11y).\n\nВ работе ценю прозрачность, code review и внимание к деталям. Постоянно изучаю новые инструменты и подходы — от Tailwind и Framer Motion до тестирования через Vitest и Playwright. Ищу команду, где смогу расти как инженер и влиять на продукт.', avatarUrl: '/creators/anya.webp', bgColor: '#E7F1FF', colorText: '#087EA4'
+    },
     { name: 'Борис Иванов', slug: 'boris-ivanov', role: 'Backend-разработчик', bio: 'Люблю PostgreSQL и ненавижу ORM-магию.', avatarUrl: '/creators/boris.webp', bgColor: '#EAF0FF', colorText: '#336791' },
     { name: 'Вика Петрова', slug: 'vika-petrova', role: 'UI/UX-дизайнер', bio: 'Рисую то, что потом сложно верстать.', avatarUrl: '/creators/vika.webp', bgColor: '#FDE8F1', colorText: '#A259FF' },
     { name: 'Глеб Кузнецов', slug: 'gleb-kuznetsov', role: 'Fullstack-разработчик', bio: 'Могу всё, но ничего до конца.', avatarUrl: '/creators/gleb.webp', bgColor: '#EAF7E6', colorText: '#3C873A' },

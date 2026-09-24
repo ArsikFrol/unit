@@ -18,7 +18,7 @@ export function Profile() {
     if (!creator) return
 
     return (
-        <div className="flex justify-between">
+        <div className="grid grid-cols-[500px_auto] gap-x-[20px] justify-between">
             <Logo creator={creator} />
             <Projects creatorSlug={creator.slug} creatorName={creator.name} />
         </div>
