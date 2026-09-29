@@ -8,7 +8,7 @@ type Props = {
 
 export function Logo({ creator }: Props) {
     return (
-        <div className='w-[500px] h-[calc(100vh-40px)] overflow-y-auto'>
+        <div className='w-[500px]'>
             <UserCircle2 size={200} color="white" strokeWidth={0.5} className="mx-auto" />
             <div className='text-white text-[30px] text-center'>{creator.name}</div>
             <div className='text-gray-400 text-[18px] my-[20px] bg-bg p-[20px] rounded-2xl whitespace-pre-line'>

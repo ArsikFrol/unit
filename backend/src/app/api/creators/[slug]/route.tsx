@@ -18,7 +18,11 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ slug
                 name: true,
                 role: true,
                 slug: true,
-                links: true
+                links: {
+                    orderBy: {
+                        order: 'asc'
+                    }
+                }
             }
         })
 

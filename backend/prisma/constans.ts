@@ -70,9 +70,7 @@ export type CreatorSeed = {
 }
 
 export const listCreators = [
-    {
-        name: 'Аня Смирнова', slug: 'anya-smirnova', role: 'Frontend-разработчик', bio: 'Фронтенд-разработчик, создаю быстрые, доступные и визуально точные интерфейсы. Специализируюсь на React, Next.js и TypeScript, уделяю особое внимание производительности, семантике и адаптивности. Верю, что хороший UI — это баланс между дизайном, логикой и скоростью загрузки.\n\nРаботал над лендингами, SPA и корпоративными порталами. Умею превращать макеты из Figma в чистый, поддерживаемый код, писать переиспользуемые компоненты и настраивать взаимодействие с REST/GraphQL API. Понимаю принципы SSR/SSG, оптимизации Core Web Vitals и доступности (a11y).\n\nВ работе ценю прозрачность, code review и внимание к деталям. Постоянно изучаю новые инструменты и подходы — от Tailwind и Framer Motion до тестирования через Vitest и Playwright. Ищу команду, где смогу расти как инженер и влиять на продукт.', avatarUrl: '/creators/anya.webp', bgColor: '#E7F1FF', colorText: '#087EA4'
-    },
+    { name: 'Аня Смирнова', slug: 'anya-smirnova', role: 'Frontend-разработчик', bio: 'Фронтенд-разработчик, создаю быстрые, доступные и визуально точные интерфейсы. Специализируюсь на React, Next.js и TypeScript, уделяю особое внимание производительности, семантике и адаптивности. Верю, что хороший UI — это баланс между дизайном, логикой и скоростью загрузки.\n\nРаботал над лендингами, SPA и корпоративными порталами. Умею превращать макеты из Figma в чистый, поддерживаемый код, писать переиспользуемые компоненты и настраивать взаимодействие с REST/GraphQL API. Понимаю принципы SSR/SSG, оптимизации Core Web Vitals и доступности (a11y).\n\nВ работе ценю прозрачность, code review и внимание к деталям. Постоянно изучаю новые инструменты и подходы — от Tailwind и Framer Motion до тестирования через Vitest и Playwright. Ищу команду, где смогу расти как инженер и влиять на продукт.', avatarUrl: '/creators/anya.webp', bgColor: '#E7F1FF', colorText: '#087EA4' },
     { name: 'Борис Иванов', slug: 'boris-ivanov', role: 'Backend-разработчик', bio: 'Люблю PostgreSQL и ненавижу ORM-магию.', avatarUrl: '/creators/boris.webp', bgColor: '#EAF0FF', colorText: '#336791' },
     { name: 'Вика Петрова', slug: 'vika-petrova', role: 'UI/UX-дизайнер', bio: 'Рисую то, что потом сложно верстать.', avatarUrl: '/creators/vika.webp', bgColor: '#FDE8F1', colorText: '#A259FF' },
     { name: 'Глеб Кузнецов', slug: 'gleb-kuznetsov', role: 'Fullstack-разработчик', bio: 'Могу всё, но ничего до конца.', avatarUrl: '/creators/gleb.webp', bgColor: '#EAF7E6', colorText: '#3C873A' },
@@ -153,3 +151,128 @@ export const listLinks: LinkSeed[] = [
     { creatorSlug: 'yulya-komarova', type: 'GITHUB', url: 'https://github.com/yulya', order: 0 },
     { creatorSlug: 'yulya-komarova', type: 'TELEGRAM', url: 'https://t.me/yulya', order: 1 },
 ]
+
+export type UniversitySeed = {
+    fullName: string
+    shortName: string
+    slug: string
+    citySlug: CitySlug
+}
+
+export const listUniversities = [
+    { fullName: 'Московский государственный университет им. М.В. Ломоносова', shortName: 'МГУ', slug: 'mgu', citySlug: 'moscow' },
+    { fullName: 'Национальный исследовательский университет «Высшая школа экономики»', shortName: 'НИУ ВШЭ', slug: 'hse', citySlug: 'moscow' },
+    { fullName: 'Московский государственный технический университет им. Н.Э. Баумана', shortName: 'МГТУ им. Баумана', slug: 'bmstu', citySlug: 'moscow' },
+    { fullName: 'Российский университет дружбы народов', shortName: 'РУДН', slug: 'rudn', citySlug: 'moscow' },
+    { fullName: 'Московский физико-технический институт', shortName: 'МФТИ', slug: 'mipt', citySlug: 'moscow' },
+    { fullName: 'Национальный исследовательский ядерный университет «МИФИ»', shortName: 'НИЯУ МИФИ', slug: 'mephi', citySlug: 'moscow' },
+    { fullName: 'Первый Московский государственный медицинский университет им. И.М. Сеченова', shortName: 'Сеченовский Университет', slug: 'sechenov', citySlug: 'moscow' },
+    { fullName: 'Российская академия народного хозяйства и государственной службы при Президенте РФ', shortName: 'РАНХиГС', slug: 'ranepa', citySlug: 'moscow' },
+    { fullName: 'Финансовый университет при Правительстве Российской Федерации', shortName: 'Финансовый университет', slug: 'fa', citySlug: 'moscow' },
+    { fullName: 'Московский государственный институт международных отношений', shortName: 'МГИМО', slug: 'mgimo', citySlug: 'moscow' },
+    { fullName: 'Российский экономический университет им. Г.В. Плеханова', shortName: 'РЭУ им. Плеханова', slug: 'rea', citySlug: 'moscow' },
+    { fullName: 'Московский авиационный институт', shortName: 'МАИ', slug: 'mai', citySlug: 'moscow' },
+    { fullName: 'Национальный исследовательский технологический университет «МИСиС»', shortName: 'МИСиС', slug: 'misis', citySlug: 'moscow' },
+    { fullName: 'Московский политехнический университет', shortName: 'Московский Политех', slug: 'moscow-polytech', citySlug: 'moscow' },
+    { fullName: 'Московский педагогический государственный университет', shortName: 'МПГУ', slug: 'mpgu', citySlug: 'moscow' },
+    { fullName: 'Российский национальный исследовательский медицинский университет им. Н.И. Пирогова', shortName: 'РНИМУ им. Пирогова', slug: 'rsmu', citySlug: 'moscow' },
+    { fullName: 'Московский государственный юридический университет им. О.Е. Кутафина', shortName: 'МГЮА', slug: 'msal', citySlug: 'moscow' },
+    { fullName: 'Российский государственный гуманитарный университет', shortName: 'РГГУ', slug: 'rggu', citySlug: 'moscow' },
+    { fullName: 'Московский государственный лингвистический университет', shortName: 'МГЛУ', slug: 'mglu', citySlug: 'moscow' },
+    { fullName: 'Российский государственный социальный университет', shortName: 'РГСУ', slug: 'rgsu', citySlug: 'moscow' },
+    { fullName: 'Санкт-Петербургский государственный университет', shortName: 'СПбГУ', slug: 'spbgu', citySlug: 'spb' },
+    { fullName: 'Санкт-Петербургский политехнический университет Петра Великого', shortName: 'СПбПУ', slug: 'spbpu', citySlug: 'spb' },
+    { fullName: 'Национальный исследовательский университет ИТМО', shortName: 'ИТМО', slug: 'itmo', citySlug: 'spb' },
+    { fullName: 'Санкт-Петербургский государственный электротехнический университет «ЛЭТИ»', shortName: 'ЛЭТИ', slug: 'etu', citySlug: 'spb' },
+    { fullName: 'Российский государственный педагогический университет им. А.И. Герцена', shortName: 'РГПУ им. Герцена', slug: 'herzen', citySlug: 'spb' },
+    { fullName: 'Санкт-Петербургский государственный архитектурно-строительный университет', shortName: 'СПбГАСУ', slug: 'spbgasu', citySlug: 'spb' },
+    { fullName: 'Санкт-Петербургский государственный университет телекоммуникаций им. М.А. Бонч-Бруевича', shortName: 'СПбГУТ', slug: 'sut', citySlug: 'spb' },
+    { fullName: 'Первый Санкт-Петербургский государственный медицинский университет им. И.П. Павлова', shortName: 'ПСПбГМУ', slug: 'pspbGMU', citySlug: 'spb' },
+    { fullName: 'Санкт-Петербургский государственный экономический университет', shortName: 'СПбГЭУ', slug: 'spbgeu', citySlug: 'spb' },
+    { fullName: 'Российский государственный гидрометеорологический университет', shortName: 'РГГМУ', slug: 'rshu', citySlug: 'spb' },
+    { fullName: 'Санкт-Петербургский государственный морской технический университет', shortName: 'СПбГМТУ', slug: 'smtu', citySlug: 'spb' },
+    { fullName: 'Санкт-Петербургский государственный институт кино и телевидения', shortName: 'СПбГИКиТ', slug: 'gikit', citySlug: 'spb' },
+    { fullName: 'Российский государственный университет им. А.И. Герцена', shortName: 'РГУ им. Герцена', slug: 'rgu-herzen', citySlug: 'spb' },
+    { fullName: 'Санкт-Петербургская государственная художественно-промышленная академия им. А.Л. Штиглица', shortName: 'Академия Штиглица', slug: 'stieglitz', citySlug: 'spb' },
+    { fullName: 'Санкт-Петербургский государственный лесотехнический университет им. С.М. Кирова', shortName: 'СПбГЛТУ', slug: 'spbgltu', citySlug: 'spb' },
+    { fullName: 'Российский государственный аграрный университет — МСХА им. К.А. Тимирязева', shortName: 'РГАУ-МСХА', slug: 'timiryazev', citySlug: 'spb' },
+    { fullName: 'Санкт-Петербургский государственный педиатрический медицинский университет', shortName: 'СПбГПМУ', slug: 'spbgpmu', citySlug: 'spb' },
+    { fullName: 'Санкт-Петербургский государственный университет промышленных технологий и дизайна', shortName: 'СПбГУПТД', slug: 'sutd', citySlug: 'spb' },
+    { fullName: 'Санкт-Петербургский государственный университет гражданской авиации', shortName: 'СПбГУГА', slug: 'spbguga', citySlug: 'spb' },
+    { fullName: 'Санкт-Петербургский государственный университет аэрокосмического приборостроения', shortName: 'ГУАП', slug: 'guap', citySlug: 'spb' },
+    { fullName: 'Уральский федеральный университет им. Б.Н. Ельцина', shortName: 'УрФУ', slug: 'urfu', citySlug: 'ekaterinburg' },
+    { fullName: 'Уральский государственный экономический университет', shortName: 'УрГЭУ', slug: 'usue', citySlug: 'ekaterinburg' },
+    { fullName: 'Уральский государственный медицинский университет', shortName: 'УГМУ', slug: 'ugmu', citySlug: 'ekaterinburg' },
+    { fullName: 'Уральский государственный педагогический университет', shortName: 'УрГПУ', slug: 'uspu', citySlug: 'ekaterinburg' },
+    { fullName: 'Уральский государственный лесотехнический университет', shortName: 'УГЛТУ', slug: 'ugltu', citySlug: 'ekaterinburg' },
+    { fullName: 'Уральский государственный университет путей сообщения', shortName: 'УрГУПС', slug: 'urgups', citySlug: 'ekaterinburg' },
+    { fullName: 'Уральский государственный архитектурно-художественный университет им. Н.С. Алферова', shortName: 'УрГАХУ', slug: 'urgahu', citySlug: 'ekaterinburg' },
+    { fullName: 'Уральский государственный горный университет', shortName: 'УГГУ', slug: 'ursmu', citySlug: 'ekaterinburg' },
+    { fullName: 'Уральский государственный аграрный университет', shortName: 'УрГАУ', slug: 'urgau', citySlug: 'ekaterinburg' },
+    { fullName: 'Российский государственный профессионально-педагогический университет', shortName: 'РГППУ', slug: 'rsvpu', citySlug: 'ekaterinburg' },
+    { fullName: 'Уральский юридический институт МВД России', shortName: 'УрЮИ МВД', slug: 'uryui-mvd', citySlug: 'ekaterinburg' },
+    { fullName: 'Уральский институт ГПС МЧС России', shortName: 'УрИ ГПС', slug: 'uri-gps', citySlug: 'ekaterinburg' },
+    { fullName: 'Уральский институт управления — филиал РАНХиГС', shortName: 'УИУ РАНХиГС', slug: 'uiu-ranepa', citySlug: 'ekaterinburg' },
+    { fullName: 'Екатеринбургская академия современного искусства', shortName: 'ЕАСИ', slug: 'easi', citySlug: 'ekaterinburg' },
+    { fullName: 'Уральская государственная консерватория им. М.П. Мусоргского', shortName: 'УГК', slug: 'uralcons', citySlug: 'ekaterinburg' },
+    { fullName: 'Уральский технический институт связи и информатики', shortName: 'УрТИСИ', slug: 'urtisi', citySlug: 'ekaterinburg' },
+    { fullName: 'Гуманитарный университет', shortName: 'ГУ', slug: 'gu-ekb', citySlug: 'ekaterinburg' },
+    { fullName: 'Екатеринбургский государственный театральный институт', shortName: 'ЕГТИ', slug: 'egti', citySlug: 'ekaterinburg' },
+    { fullName: 'Уральский филиал Финансового университета', shortName: 'УрФУ при Правительстве РФ', slug: 'fa-ural', citySlug: 'ekaterinburg' },
+    { fullName: 'Институт экономики УрО РАН', shortName: 'ИЭ УрО РАН', slug: 'ie-uran', citySlug: 'ekaterinburg' },
+    { fullName: 'Казанский (Приволжский) федеральный университет', shortName: 'КФУ', slug: 'kpfu', citySlug: 'kazan' },
+    { fullName: 'Казанский национальный исследовательский технический университет им. А.Н. Туполева', shortName: 'КНИТУ-КАИ', slug: 'kai', citySlug: 'kazan' },
+    { fullName: 'Казанский национальный исследовательский технологический университет', shortName: 'КНИТУ', slug: 'knrtu', citySlug: 'kazan' },
+    { fullName: 'Казанский государственный энергетический университет', shortName: 'КГЭУ', slug: 'kgeu', citySlug: 'kazan' },
+    { fullName: 'Казанский государственный медицинский университет', shortName: 'КГМУ', slug: 'kgmu', citySlug: 'kazan' },
+    { fullName: 'Казанский государственный аграрный университет', shortName: 'КГАУ', slug: 'kazgau', citySlug: 'kazan' },
+    { fullName: 'Казанский инновационный университет им. В.Г. Тимирясова', shortName: 'КИУ', slug: 'kiu', citySlug: 'kazan' },
+    { fullName: 'Казанский государственный архитектурно-строительный университет', shortName: 'КГАСУ', slug: 'kgasu', citySlug: 'kazan' },
+    { fullName: 'Казанский государственный институт культуры', shortName: 'КазГИК', slug: 'kazgik', citySlug: 'kazan' },
+    { fullName: 'Казанская государственная консерватория им. Н.Г. Жиганова', shortName: 'КГК', slug: 'kazancons', citySlug: 'kazan' },
+    { fullName: 'Казанский филиал Российского государственного университета правосудия', shortName: 'КФ РГУП', slug: 'kf-rgup', citySlug: 'kazan' },
+    { fullName: 'Казанский кооперативный институт', shortName: 'ККИ РУК', slug: 'kki-ruk', citySlug: 'kazan' },
+    { fullName: 'Казанский институт финансов, экономики и информатики', shortName: 'КИФЭИ', slug: 'kifei', citySlug: 'kazan' },
+    { fullName: 'Казанский филиал РАНХиГС', shortName: 'КФ РАНХиГС', slug: 'kf-ranepa', citySlug: 'kazan' },
+    { fullName: 'Казанская православная духовная семинария', shortName: 'КазПДС', slug: 'kazpds', citySlug: 'kazan' },
+    { fullName: 'Казанский филиал Московского финансово-промышленного университета «Синергия»', shortName: 'Синергия Казань', slug: 'synergy-kazan', citySlug: 'kazan' },
+    { fullName: 'Казанский филиал Российского университета кооперации', shortName: 'КФ РУК', slug: 'kf-ruk', citySlug: 'kazan' },
+    { fullName: 'Казанский филиал Университета «Синергия»', shortName: 'Синергия', slug: 'synergy-kzn', citySlug: 'kazan' },
+    { fullName: 'Казанский государственный цирковое училище', shortName: 'КГЦУ', slug: 'kazcircus', citySlug: 'kazan' },
+    { fullName: 'Казанский медицинский колледж', shortName: 'КМК', slug: 'kazmedcollege', citySlug: 'kazan' },
+    { fullName: 'Новосибирский государственный университет', shortName: 'НГУ', slug: 'nsu', citySlug: 'novosibirsk' },
+    { fullName: 'Новосибирский государственный технический университет', shortName: 'НГТУ', slug: 'nstu', citySlug: 'novosibirsk' },
+    { fullName: 'Сибирский государственный университет телекоммуникаций и информатики', shortName: 'СибГУТИ', slug: 'sibsutis', citySlug: 'novosibirsk' },
+    { fullName: 'Новосибирский государственный медицинский университет', shortName: 'НГМУ', slug: 'ngmu', citySlug: 'novosibirsk' },
+    { fullName: 'Новосибирский государственный педагогический университет', shortName: 'НГПУ', slug: 'nspu', citySlug: 'novosibirsk' },
+    { fullName: 'Сибирский государственный университет путей сообщения', shortName: 'СГУПС', slug: 'sgups', citySlug: 'novosibirsk' },
+    { fullName: 'Новосибирский государственный архитектурно-строительный университет', shortName: 'НГАСУ', slug: 'ngasu', citySlug: 'novosibirsk' },
+    { fullName: 'Новосибирский государственный аграрный университет', shortName: 'НГАУ', slug: 'nsau', citySlug: 'novosibirsk' },
+    { fullName: 'Новосибирский государственный университет экономики и управления', shortName: 'НГУЭУ', slug: 'nsuem', citySlug: 'novosibirsk' },
+    { fullName: 'Сибирский институт управления — филиал РАНХиГС', shortName: 'СИУ РАНХиГС', slug: 'siu-ranepa', citySlug: 'novosibirsk' },
+    { fullName: 'Новосибирский юридический институт', shortName: 'НЮИ', slug: 'nui', citySlug: 'novosibirsk' },
+    { fullName: 'Новосибирская государственная консерватория им. М.И. Глинки', shortName: 'НГК', slug: 'ngk', citySlug: 'novosibirsk' },
+    { fullName: 'Новосибирский государственный театральный институт', shortName: 'НГТИ', slug: 'ngti', citySlug: 'novosibirsk' },
+    { fullName: 'Новосибирский институт повышения квалификации и переподготовки работников образования', shortName: 'НИПКиПРО', slug: 'nipkipro', citySlug: 'novosibirsk' },
+    { fullName: 'Новосибирский филиал Финансового университета', shortName: 'НФ ФинУниверситет', slug: 'fa-nsk', citySlug: 'novosibirsk' },
+    { fullName: 'Новосибирский филиал Российского экономического университета им. Г.В. Плеханова', shortName: 'НФ РЭУ', slug: 'rea-nsk', citySlug: 'novosibirsk' },
+    { fullName: 'Новосибирский филиал Российского государственного гуманитарного университета', shortName: 'НФ РГГУ', slug: 'rggu-nsk', citySlug: 'novosibirsk' },
+    { fullName: 'Новосибирский филиал Московского педагогического государственного университета', shortName: 'НФ МПГУ', slug: 'mpgu-nsk', citySlug: 'novosibirsk' },
+    { fullName: 'Новосибирский филиал Российского университета дружбы народов', shortName: 'НФ РУДН', slug: 'rudn-nsk', citySlug: 'novosibirsk' },
+    { fullName: 'Новосибирский филиал Университета «Синергия»', shortName: 'Синергия Нск', slug: 'synergy-nsk', citySlug: 'novosibirsk' },
+] as const satisfies readonly UniversitySeed[]
+
+export type CitySeed = {
+    name: string
+    slug: string
+}
+
+export const listCities = [
+    { name: 'Москва', slug: 'moscow' },
+    { name: 'Санкт-Петербург', slug: 'spb' },
+    { name: 'Екатеринбург', slug: 'ekaterinburg' },
+    { name: 'Казань', slug: 'kazan' },
+    { name: 'Новосибирск', slug: 'novosibirsk' },
+] as const satisfies readonly CitySeed[]
+
+export type CitySlug = (typeof listCities)[number]['slug']

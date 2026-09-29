@@ -7,7 +7,7 @@ import { useTypedRouter } from "@/hooks/useTypedRouter"
 import { cn } from "@/lib/utils"
 
 type Props = {
-    idShowBigElem: string
+    showIdModal: string
 }
 
 export type IdNav = 'about' | 'projects' | 'hack'
@@ -47,7 +47,7 @@ export default function Header(props: Props) {
             "sticky bg-[#c4c4c4] rounded-4xl py-[3px] px-[3px] flex justify-between items-center z-10",
             'w-[calc(100%-20px)] transition-all mx-auto my-[20px]',
             'top-[20px]',
-            props.idShowBigElem
+            props.showIdModal
                 ? 'opacity-0 -translate-y-[120%] pointer-events-none'
                 : 'opacity-100 translate-y-0 pointer-events-auto'
         )}>

@@ -17,16 +17,17 @@ import Date from "./Date"
 
 type Props = {
     obj: GetProject,
-    setIdShowBigElem: (value: string) => void,
+    setShowIdModal: (value: string) => void,
+    showIdModal: string
 }
 
-export default function ProjectModal({ obj, setIdShowBigElem }: Props) {
+export default function ProjectModal({ obj, setShowIdModal, showIdModal }: Props) {
 
     const ref = useRef<HTMLDivElement>(null)
 
     useLockScroll()
-    useEscape(() => { setIdShowBigElem('') })
-    useClickAway(ref, () => setIdShowBigElem(''))
+    useEscape(() => { setShowIdModal('') })
+    useClickAway(ref, () => setShowIdModal(''))
 
     return (
         <div className={cn(
@@ -44,12 +45,12 @@ export default function ProjectModal({ obj, setIdShowBigElem }: Props) {
                     </div>
                     <div className='text-white mt-[20px] mb-[40px]'>{obj.description}</div>
                     <Video obj={obj} />
-                    <Creators obj={obj} />
+                    <Creators obj={obj} showIdModal={showIdModal} setShowIdModal={setShowIdModal} />
                     <Technologies obj={obj} />
                     <Link obj={obj} />
                 </div>
                 <div className='group p-[10px] rounded-2xl self-start cursor-pointer' style={{ background: obj.bgColor }}
-                    onClick={() => setIdShowBigElem('')}>
+                    onClick={() => setShowIdModal('')}>
                     <X size={40} strokeWidth={1.5} className={cn(
                         "text-white group-hover:scale-105 group-hover:rotate-90 transition-all duration-300"
                     )} />

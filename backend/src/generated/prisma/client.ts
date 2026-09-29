@@ -71,3 +71,13 @@ export type ProjectCreator = Prisma.ProjectCreatorModel
  * 
  */
 export type Technology = Prisma.TechnologyModel
+/**
+ * Model University
+ * 
+ */
+export type University = Prisma.UniversityModel
+/**
+ * Model City
+ * 
+ */
+export type City = Prisma.CityModel

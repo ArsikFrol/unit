@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export default function Elem({ obj }: { obj: Hack }) {
     return (
-        <div className='bg-bg rounded-2xl h-[380px] grid grid-cols-[600px_auto]'>
+        <div className='bg-bg rounded-2xl h-[380px] grid grid-cols-[600px_auto] gap-x-[50px]'>
             <div className='py-[40px] pl-[40px] flex flex-col justify-between'>
                 <div className=''>
                     <Image src={obj.imageTitle} alt='' width={480} height={80} draggable='false' />

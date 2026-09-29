@@ -6,18 +6,18 @@ import Logo from "./Logo";
 
 type Props = {
     obj: GetProject,
-    setIdShowBigElem: (value: string) => void,
+    setShowIdModal: (value: string) => void,
 
     isSmall: boolean
 }
 
-export function ProjectElem({ obj, setIdShowBigElem, isSmall }: Props) {
+export function ProjectElem({ obj, setShowIdModal, isSmall }: Props) {
     return (
         <div className={cn(
             "py-[20px] px-[30px] rounded-2xl flex flex-col justify-between",
             'hover:scale-101 transition-transform duration-300 cursor-pointer',
             isSmall ? 'h-[300px]' : 'h-[350px]'
-        )} style={{ background: obj.bgColor }} onClick={() => setIdShowBigElem(obj.projectId)} >
+        )} style={{ background: obj.bgColor }} onClick={() => setShowIdModal(obj.projectId)} >
             <Logo obj={obj} isSmall={isSmall} />
             <div className={cn(
                 'text-white overflow-y-auto',

@@ -1,7 +1,7 @@
 import { TechnologyModel } from "../../../backend/src/generated/prisma/models"
 import { CreatorSlug } from '../../../backend/prisma/constans'
 
-type Status = 'completed' | 'in_development'
+export type Status = 'COMPLETED' | 'IN_DEVELOPMENT'
 
 export type GetProject = {
     projectId: string

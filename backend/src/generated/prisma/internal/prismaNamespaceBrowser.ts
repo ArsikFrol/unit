@@ -56,7 +56,9 @@ export const ModelName = {
   Project: 'Project',
   ProjectTechnology: 'ProjectTechnology',
   ProjectCreator: 'ProjectCreator',
-  Technology: 'Technology'
+  Technology: 'Technology',
+  University: 'University',
+  City: 'City'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -147,6 +149,30 @@ export const TechnologyScalarFieldEnum = {
 } as const
 
 export type TechnologyScalarFieldEnum = (typeof TechnologyScalarFieldEnum)[keyof typeof TechnologyScalarFieldEnum]
+
+
+export const UniversityScalarFieldEnum = {
+  universityId: 'universityId',
+  fullName: 'fullName',
+  shortName: 'shortName',
+  slug: 'slug',
+  cityId: 'cityId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UniversityScalarFieldEnum = (typeof UniversityScalarFieldEnum)[keyof typeof UniversityScalarFieldEnum]
+
+
+export const CityScalarFieldEnum = {
+  cityId: 'cityId',
+  name: 'name',
+  slug: 'slug',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CityScalarFieldEnum = (typeof CityScalarFieldEnum)[keyof typeof CityScalarFieldEnum]
 
 
 export const SortOrder = {

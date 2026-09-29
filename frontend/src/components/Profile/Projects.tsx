@@ -1,13 +1,12 @@
 'use client'
 
-import { useState } from "react"
-
 import { useGetProjectsForProfile } from "@/hooks/useGetProjectsForProfile"
 import { CreatorSlug } from "../../../../backend/prisma/constans"
 import { ClipLoaderUI } from "../UI/ClipLoader"
 import { ProjectElem } from "../UI/ProjectElem/ProjectElem"
 import ProjectModal from "../OurProjects/Modal/ProjectModal"
 import { cn } from "@/lib/utils"
+import useModalProject from "@/store/modalProject/modalStore"
 
 type Props = {
     creatorSlug: CreatorSlug,
@@ -15,8 +14,7 @@ type Props = {
 }
 
 export function Projects(props: Props) {
-    const [idShowBigElem, setIdShowBigElem] = useState<string>('')
-
+    const { setShowIdModal, showIdModal } = useModalProject()
     const { error, listProjects, loading, } = useGetProjectsForProfile(props.creatorSlug)
 
     if (loading) return <ClipLoaderUI />
@@ -34,13 +32,13 @@ export function Projects(props: Props) {
                 )}>
                     {
                         listProjects
-                            .map((obj, index) => <ProjectElem key={index} isSmall obj={obj} setIdShowBigElem={setIdShowBigElem} />)
+                            .map((obj, index) => <ProjectElem key={index} isSmall obj={obj} setShowIdModal={setShowIdModal} />)
                     }
                 </div>
             </div>
-            {idShowBigElem &&
-                <ProjectModal obj={listProjects.find(obj => obj.projectId === idShowBigElem)!}
-                    setIdShowBigElem={setIdShowBigElem} />
+            {showIdModal &&
+                <ProjectModal obj={listProjects.find(obj => obj.projectId === showIdModal)!}
+                    setShowIdModal={setShowIdModal} showIdModal={showIdModal} />
             }
         </>
     )

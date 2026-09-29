@@ -2,6 +2,13 @@ import { CreatorSlug } from "../../../backend/prisma/constans"
 
 type LinkType = "GITHUB" | "TELEGRAM" | "VK" | "PORTFOLIO"
 
+export type creatorLink = {
+    creatorSlug: CreatorSlug
+    type: LinkType
+    url: string
+    order: number
+}
+
 export type GetCreator = {
     creatorId: string,
     avatarUrl: string,
@@ -11,10 +18,5 @@ export type GetCreator = {
     name: string,
     role: string,
     slug: CreatorSlug,
-    links: {
-        creatorSlug: CreatorSlug
-        type: LinkType
-        url: string
-        order: number
-    }[]
+    links: creatorLink[]
 }

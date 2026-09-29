@@ -1,5 +1,7 @@
-import { cn } from "@/lib/utils"
 import { X } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+import { Filters } from "./Filters/Filters"
 
 type Props = {
     value: string,
@@ -12,7 +14,7 @@ export function Search({ value, setValue }: Props) {
     }
 
     return (
-        <div className="relative w-[700px]">
+        <div className="relative w-[900px] flex items-center gap-x-[20px]">
             <input type="text" value={value} placeholder="Введите название проекта или его описание" autoFocus
                 onChange={e => setValue(e.target.value)} spellCheck="false"
                 className={cn(
@@ -20,12 +22,13 @@ export function Search({ value, setValue }: Props) {
                     'text-[16px] text-white'
                 )} />
             <X size={35} strokeWidth={1} onClick={clickX} className={cn(
-                'absolute right-[10px] top-[7px]',
+                'absolute left-[650px] top-[7px]',
                 'text-white transition-all duration-300 hover:scale-105 cursor-pointer',
                 value
                     ? 'opacity-100 translate-x-[0px]'
                     : 'opacity-0 translate-x-[5px]'
             )} />
+            <Filters />
         </div>
     )
 }

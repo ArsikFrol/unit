@@ -389,7 +389,9 @@ export const ModelName = {
   Project: 'Project',
   ProjectTechnology: 'ProjectTechnology',
   ProjectCreator: 'ProjectCreator',
-  Technology: 'Technology'
+  Technology: 'Technology',
+  University: 'University',
+  City: 'City'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -405,7 +407,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "creator" | "link" | "project" | "projectTechnology" | "projectCreator" | "technology"
+    modelProps: "creator" | "link" | "project" | "projectTechnology" | "projectCreator" | "technology" | "university" | "city"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -853,6 +855,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    University: {
+      payload: Prisma.$UniversityPayload<ExtArgs>
+      fields: Prisma.UniversityFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.UniversityFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversityPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.UniversityFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversityPayload>
+        }
+        findFirst: {
+          args: Prisma.UniversityFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversityPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.UniversityFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversityPayload>
+        }
+        findMany: {
+          args: Prisma.UniversityFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversityPayload>[]
+        }
+        create: {
+          args: Prisma.UniversityCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversityPayload>
+        }
+        createMany: {
+          args: Prisma.UniversityCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.UniversityCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversityPayload>[]
+        }
+        delete: {
+          args: Prisma.UniversityDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversityPayload>
+        }
+        update: {
+          args: Prisma.UniversityUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversityPayload>
+        }
+        deleteMany: {
+          args: Prisma.UniversityDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.UniversityUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.UniversityUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversityPayload>[]
+        }
+        upsert: {
+          args: Prisma.UniversityUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversityPayload>
+        }
+        aggregate: {
+          args: Prisma.UniversityAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUniversity>
+        }
+        groupBy: {
+          args: Prisma.UniversityGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UniversityGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.UniversityCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UniversityCountAggregateOutputType> | number
+        }
+      }
+    }
+    City: {
+      payload: Prisma.$CityPayload<ExtArgs>
+      fields: Prisma.CityFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.CityFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CityPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.CityFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CityPayload>
+        }
+        findFirst: {
+          args: Prisma.CityFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CityPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.CityFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CityPayload>
+        }
+        findMany: {
+          args: Prisma.CityFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CityPayload>[]
+        }
+        create: {
+          args: Prisma.CityCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CityPayload>
+        }
+        createMany: {
+          args: Prisma.CityCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.CityCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CityPayload>[]
+        }
+        delete: {
+          args: Prisma.CityDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CityPayload>
+        }
+        update: {
+          args: Prisma.CityUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CityPayload>
+        }
+        deleteMany: {
+          args: Prisma.CityDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.CityUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.CityUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CityPayload>[]
+        }
+        upsert: {
+          args: Prisma.CityUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CityPayload>
+        }
+        aggregate: {
+          args: Prisma.CityAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCity>
+        }
+        groupBy: {
+          args: Prisma.CityGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CityGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.CityCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CityCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -964,6 +1114,30 @@ export const TechnologyScalarFieldEnum = {
 } as const
 
 export type TechnologyScalarFieldEnum = (typeof TechnologyScalarFieldEnum)[keyof typeof TechnologyScalarFieldEnum]
+
+
+export const UniversityScalarFieldEnum = {
+  universityId: 'universityId',
+  fullName: 'fullName',
+  shortName: 'shortName',
+  slug: 'slug',
+  cityId: 'cityId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UniversityScalarFieldEnum = (typeof UniversityScalarFieldEnum)[keyof typeof UniversityScalarFieldEnum]
+
+
+export const CityScalarFieldEnum = {
+  cityId: 'cityId',
+  name: 'name',
+  slug: 'slug',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CityScalarFieldEnum = (typeof CityScalarFieldEnum)[keyof typeof CityScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1195,6 +1369,8 @@ export type GlobalOmitConfig = {
   projectTechnology?: Prisma.ProjectTechnologyOmit
   projectCreator?: Prisma.ProjectCreatorOmit
   technology?: Prisma.TechnologyOmit
+  university?: Prisma.UniversityOmit
+  city?: Prisma.CityOmit
 }
 
 /* Types for Logging */

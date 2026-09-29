@@ -7,11 +7,15 @@ import { GetProject } from "@/types/project"
 import { useTypedRouter } from "@/hooks/useTypedRouter"
 import { CreatorSlug } from "../../../../../backend/prisma/constans"
 
-export function Creators({ obj }: { obj: GetProject }) {
+export function Creators(
+    { obj, showIdModal, setShowIdModal }: { obj: GetProject, showIdModal: string, setShowIdModal: (value: string) => void }
+) {
     const router = useTypedRouter()
 
     const clickCreator = (slug: CreatorSlug) => {
-        router.push(`/creator/${slug}`)
+        router.push(`/creator/${slug}?projectId=${showIdModal}`)
+        console.log(showIdModal)
+        setShowIdModal('')
     }
 
     return (
@@ -20,7 +24,6 @@ export function Creators({ obj }: { obj: GetProject }) {
             <div className='grid grid-cols-4 w-full gap-y-[10px]'>
                 {
                     obj.creators.map((creator, index) => {
-                        console.log(creator.bgColor)
                         return (
                             <div key={index} className={cn(
                                 'flex items-center gap-x-[5px] py-[7px] px-[15px] rounded-2xl w-[220px] justify-center',

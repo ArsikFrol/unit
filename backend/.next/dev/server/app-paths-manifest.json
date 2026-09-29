@@ -1,6 +1,5 @@
 {
-  "/api/creators/[slug]/route": "app/api/creators/[slug]/route.js",
-  "/api/projects/[creatorSlug]/route": "app/api/projects/[creatorSlug]/route.js",
   "/api/projects/route": "app/api/projects/route.js",
-  "/api/projects/search/route": "app/api/projects/search/route.js"
+  "/api/projects/search/route": "app/api/projects/search/route.js",
+  "/api/technologies/route": "app/api/technologies/route.js"
 }

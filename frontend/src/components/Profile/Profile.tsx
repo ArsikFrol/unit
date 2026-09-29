@@ -7,6 +7,7 @@ import { useGetCreator } from "@/hooks/useGetCreator";
 import { Logo } from "./Logo";
 import { CreatorSlug } from "../../../../backend/prisma/constans";
 import { Projects } from "./Projects";
+import { Links } from "./Links";
 
 export function Profile() {
     const pathName = usePathname()
@@ -19,7 +20,10 @@ export function Profile() {
 
     return (
         <div className="grid grid-cols-[500px_auto] gap-x-[20px] justify-between">
-            <Logo creator={creator} />
+            <div className='flex flex-col h-[calc(100vh-40px)] overflow-y-auto'>
+                <Logo creator={creator} />
+                <Links links={creator.links} />
+            </div>
             <Projects creatorSlug={creator.slug} creatorName={creator.name} />
         </div>
     )

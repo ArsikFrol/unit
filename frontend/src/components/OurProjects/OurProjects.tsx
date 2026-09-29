@@ -8,8 +8,8 @@ import ProjectModal from "./Modal/ProjectModal"
 import { ProjectElem } from "@/components/UI/ProjectElem/ProjectElem"
 
 type Props = {
-    idShowBigElem: string,
-    setIdShowBigElem: (value: string) => void
+    showIdModal: string,
+    setShowIdModal: (value: string) => void
 }
 
 export default function OurProjects(props: Props) {
@@ -31,7 +31,7 @@ export default function OurProjects(props: Props) {
                     listProjects
                         .slice(0, 4)
                         .map((obj, index) => <ProjectElem key={index} isSmall={false}
-                            obj={obj} setIdShowBigElem={props.setIdShowBigElem} />)
+                            obj={obj} setShowIdModal={props.setShowIdModal} />)
                 }
             </div>
             <div className={cn(
@@ -40,9 +40,9 @@ export default function OurProjects(props: Props) {
             )} onClick={clickSeeMore}>
                 Увидеть больше проектов
             </div>
-            {props.idShowBigElem
-                ? <ProjectModal obj={listProjects.find(obj => obj.projectId === props.idShowBigElem)!}
-                    setIdShowBigElem={props.setIdShowBigElem} />
+            {props.showIdModal
+                ? <ProjectModal obj={listProjects.find(obj => obj.projectId === props.showIdModal)!}
+                    setShowIdModal={props.setShowIdModal} showIdModal={props.showIdModal} />
                 : undefined
             }
         </div>

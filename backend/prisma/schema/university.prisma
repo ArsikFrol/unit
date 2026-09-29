@@ -1,0 +1,30 @@
+model University {
+    universityId String @id @default(cuid()) @map("university_id")
+
+    fullName  String @map("full_name")
+    shortName String @map("short_name")
+    slug      String @unique
+
+    cityId String @map("cuty_id")
+    city   City   @relation(fields: [cityId], references: [cityId])
+
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    @@index([cityId])
+    @@map("universities")
+}
+
+model City {
+    cityId String @id @default(cuid()) @map("city_id")
+
+    name String
+    slug String @unique
+
+    universities University[]
+
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    @@map("cityes")
+}

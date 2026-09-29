@@ -7,7 +7,7 @@ export type TypeRoutes =
     '/'
     | '/join'
     | '/projects'
-    | `/creator/${CreatorSlug}`
+    | `/creator/${CreatorSlug}?projectId=${string}`
     | '/#projects'
 
 type TypedRouter = Omit<AppRouterInstance, 'push' | 'replace'> & {
