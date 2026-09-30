@@ -1,7 +1,7 @@
 import { TechSlug } from "../../../backend/prisma/constans"
 
-export type Technologie = {
-    technologieId: string,
+export type Technology = {
+    technologyId: string,
     bgColor: string | null,
     colorText: string | null,
     iconUrl: string | null,

@@ -2,9 +2,9 @@
 
 import { useRef, useState } from "react"
 import { useClickAway } from "react-use"
+import { ChevronDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { ChevronDown } from "lucide-react"
 import { Fields } from "./Fields"
 import { Order } from "./Order/Order"
 import { Status } from "@/types/project"
@@ -13,6 +13,7 @@ export type SortField =
     | 'startOfDevelopment'
     | 'endOfDevelopment'
     | 'status'
+    | 'technologies'
 
 export type SortOrder = 'asc' | 'desc' | Status
 
@@ -37,7 +38,7 @@ export function Filters() {
     })
 
     return (
-        <div className="relative">
+        <div className="relative"  ref={ref}>
             <div className={cn(
                 "w-fit bg-bg px-[40px] h-[50px] rounded-2xl flex items-center gap-x-[10px]",
                 'transition-transform duration-300 cursor-pointer',
@@ -47,23 +48,23 @@ export function Filters() {
                 <ChevronDown color="white" size={30} strokeWidth={1} />
             </div>
             <div className={cn(
-                '',
-                'absolute top-[60px] left-1/2 -translate-x-1/2 flex',
+                'bg-bg rounded-2xl p-[5px]',
+                'absolute top-[60px] left-1/2 -translate-x-1/2 flex items-center',
                 'transition-[opacity,width] duration-300',
                 showFilters
                     ? 'opacity-100'
                     : 'opacity-0',
                 sort.field
-                    ? 'w-[380px] gap-x-[10px]'
+                    ? 'gap-x-[10px]'
                     : 'w-[170px]',
-                sort.field === 'status' && 'items-center'
-            )} ref={ref}>
+                sort.field === 'technologies' && 'w-[580px]',
+                sort.field !== 'technologies' && 'w-[380px]'
+            )}>
                 <Fields sort={sort} setSort={setSort} />
                 <div className={cn(
                     'flex flex-col',
                     'transition-opacity duration-300',
-                    sort.field ? 'opacity-100' : 'opacity-0',
-                    sort.field !== 'status' && ' h-[142px]'
+                    sort.field ? 'opacity-100' : 'opacity-0'
                 )}>
                     <Order sort={sort} setSort={setSort} />
                 </div>

@@ -1,4 +1,4 @@
-import { Technologie } from "@/types/technologie"
+import { Technologie } from "@/types/technology"
 import { axiosInstance } from "./instance"
 import { ApiRoutes } from "./constants"
 

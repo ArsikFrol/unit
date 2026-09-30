@@ -28,18 +28,22 @@ export function AscDesc({ sort, setSort }: Props) {
     }
 
     return (
-        <div className='h-[142px] flex flex-col justify-between'>
+        <div className='flex flex-col gap-y-[10px]'>
             {
                 listOrder.map((obj, index) => {
                     return (
                         <div key={index} className={cn(
-                            'hover:scale-101 hover:bg-[#151515] py-[7px] rounded-2xl',
-                            'transition-transform duration-300 cursor-pointer',
-                            'text-center text-white w-[200px] flex items-center',
-                            obj.id === 2 ? 'flex-col-reverse' : 'flex-col'
+                            'group w-[200px] py-[5px] bg-[#151515] rounded-2xl',
+                            'hover:scale-101 transition-transform duration-300 cursor-pointer',
+                            'text-white flex justify-center'
                         )} onClick={() => clickSort(obj.type)}>
-                            {obj.icon}
-                            <div className=''>{obj.text}</div>
+                            <div className={cn(
+                                "h-[60px] group-hover:bg-bg rounded-2xl flex justify-center items-center",
+                                obj.id === 2 ? 'flex-col-reverse' : 'flex-col'
+                            )}>
+                                {obj.icon}
+                                <div className='w-[190px] text-center'>{obj.text}</div>
+                            </div>
                         </div>
                     )
                 })

@@ -1,6 +1,7 @@
 import { SortValue } from "../Filters"
 import { AscDesc } from "./AscDesc"
 import { Status } from "./Status"
+import { Technologies } from "./Technologies/Technologies"
 
 type Props = {
     sort: SortValue,
@@ -8,9 +9,11 @@ type Props = {
 }
 
 export function Order({ sort, setSort }: Props) {
-    return (
-        sort.field !== 'status'
-            ? <AscDesc setSort={setSort} sort={sort} />
-            : <Status setSort={setSort} sort={sort} />
-    )
+        switch (sort.field) {
+            case 'status': return <Status setSort={setSort} sort={sort} />
+            case 'endOfDevelopment':
+            case 'startOfDevelopment': return <AscDesc setSort={setSort} sort={sort} />
+            case 'technologies': return <Technologies setSort={setSort} sort={sort}  />
+            default: return null
+        }
 }
