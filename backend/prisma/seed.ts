@@ -1,5 +1,5 @@
 import { prisma } from "../src/lib/prisma"
-import { listCreators, listLinks, listProjects, listTechnologies } from "./constans"
+import { listCities, listCreators, listLinks, listProjects, listTechnologies, listUniversities } from "./constans"
 
 async function up() {
     console.log('Начинаем заполнение базы данных...')
@@ -43,15 +43,43 @@ async function up() {
         })),
     })
 
+    await prisma.city.createMany({
+        data: [...listCities]
+    })
+
+    const cities = await prisma.city.findMany({
+        select: {
+            cityId: true,
+            slug: true,
+        }
+    })
+
+    const cityIdBySlug = Object.fromEntries(
+        cities.map((c) => [c.slug, c.cityId])
+    ) as Record<string, string>
+
+    await prisma.university.createMany({
+        data: listUniversities.map(({ citySlug, ...rest }) => ({
+            ...rest,
+            cityId: cityIdBySlug[citySlug]
+        }))
+    })
+
     console.log('Seeding завершён успешно!')
 }
 
 async function down() {
 
-    await prisma.project.deleteMany()
-    await prisma.creator.deleteMany()
+    await prisma.projectTechnology.deleteMany()
+    await prisma.projectCreator.deleteMany()
     await prisma.link.deleteMany()
+
+    await prisma.university.deleteMany()
+
+    await prisma.project.deleteMany()
     await prisma.technology.deleteMany()
+    await prisma.creator.deleteMany()
+    await prisma.city.deleteMany()
 
     console.log('База данных очищена')
 }

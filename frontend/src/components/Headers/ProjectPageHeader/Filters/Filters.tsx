@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { Fields } from "./Fields"
 import { Order } from "./Order/Order"
 import { Status } from "@/types/project"
+import { Btns } from "./Btns"
 
 export type SortField =
     | 'startOfDevelopment'
@@ -32,42 +33,51 @@ export function Filters() {
         order: ''
     })
 
+    const clickFilter = () => {
+        setSort({ field: '', order: '' })
+        setShowFilters(!showFilters)
+    }
+
     useClickAway(ref, () => {
         setShowFilters(false)
         setSort(() => ({ field: '', order: '' }))
     })
 
     return (
-        <div className="relative"  ref={ref}>
+        <div className="relative" ref={ref}>
             <div className={cn(
                 "w-fit bg-bg px-[40px] h-[50px] rounded-2xl flex items-center gap-x-[10px]",
                 'transition-transform duration-300 cursor-pointer',
                 !showFilters && 'hover:translate-y-[-2px] '
-            )} onClick={() => setShowFilters(!showFilters)}>
+            )} onClick={clickFilter}>
                 <div className='text-[16px] text-white'>Фильтр</div>
                 <ChevronDown color="white" size={30} strokeWidth={1} />
             </div>
             <div className={cn(
                 'bg-bg rounded-2xl p-[5px]',
-                'absolute top-[60px] left-1/2 -translate-x-1/2 flex items-center',
-                'transition-[opacity,width] duration-300',
+                'absolute top-[60px] left-1/2 -translate-x-1/2',
+                'transition-[opacity] duration-300',
                 showFilters
                     ? 'opacity-100'
                     : 'opacity-0',
-                sort.field
-                    ? 'gap-x-[10px]'
-                    : 'w-[170px]',
-                sort.field === 'technologies' && 'w-[580px]',
-                sort.field !== 'technologies' && 'w-[380px]'
             )}>
-                <Fields sort={sort} setSort={setSort} />
                 <div className={cn(
-                    'flex flex-col',
-                    'transition-opacity duration-300',
-                    sort.field ? 'opacity-100' : 'opacity-0'
+                    'flex items-center mx-auto',
+                    'transition-[width] duration-300',
+                    sort.field !== ''
+                        ? sort.field === 'technologies' ? 'w-[580px] gap-x-[10px]' : 'w-[380px] gap-x-[20px]'
+                        : 'w-[160px] mx-[40px]'
                 )}>
-                    <Order sort={sort} setSort={setSort} />
+                    <Fields sort={sort} setSort={setSort} />
+                    <div className={cn(
+                        'flex flex-col',
+                        'transition-opacity duration-300',
+                        sort.field ? 'opacity-100' : 'opacity-0'
+                    )}>
+                        <Order sort={sort} setSort={setSort} />
+                    </div>
                 </div>
+                <Btns sort={sort} setSort={setSort} />
             </div>
         </div>
     )

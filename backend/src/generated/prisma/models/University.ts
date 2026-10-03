@@ -162,7 +162,7 @@ export type UniversityGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
 export type UniversityGroupByOutputType = {
   universityId: string
   fullName: string
-  shortName: string | null
+  shortName: string
   slug: string
   cityId: string
   createdAt: Date
@@ -193,7 +193,7 @@ export type UniversityWhereInput = {
   NOT?: Prisma.UniversityWhereInput | Prisma.UniversityWhereInput[]
   universityId?: Prisma.StringFilter<"University"> | string
   fullName?: Prisma.StringFilter<"University"> | string
-  shortName?: Prisma.StringNullableFilter<"University"> | string | null
+  shortName?: Prisma.StringFilter<"University"> | string
   slug?: Prisma.StringFilter<"University"> | string
   cityId?: Prisma.StringFilter<"University"> | string
   createdAt?: Prisma.DateTimeFilter<"University"> | Date | string
@@ -204,7 +204,7 @@ export type UniversityWhereInput = {
 export type UniversityOrderByWithRelationInput = {
   universityId?: Prisma.SortOrder
   fullName?: Prisma.SortOrder
-  shortName?: Prisma.SortOrderInput | Prisma.SortOrder
+  shortName?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   cityId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -219,7 +219,7 @@ export type UniversityWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.UniversityWhereInput[]
   NOT?: Prisma.UniversityWhereInput | Prisma.UniversityWhereInput[]
   fullName?: Prisma.StringFilter<"University"> | string
-  shortName?: Prisma.StringNullableFilter<"University"> | string | null
+  shortName?: Prisma.StringFilter<"University"> | string
   cityId?: Prisma.StringFilter<"University"> | string
   createdAt?: Prisma.DateTimeFilter<"University"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"University"> | Date | string
@@ -229,7 +229,7 @@ export type UniversityWhereUniqueInput = Prisma.AtLeast<{
 export type UniversityOrderByWithAggregationInput = {
   universityId?: Prisma.SortOrder
   fullName?: Prisma.SortOrder
-  shortName?: Prisma.SortOrderInput | Prisma.SortOrder
+  shortName?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   cityId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -245,7 +245,7 @@ export type UniversityScalarWhereWithAggregatesInput = {
   NOT?: Prisma.UniversityScalarWhereWithAggregatesInput | Prisma.UniversityScalarWhereWithAggregatesInput[]
   universityId?: Prisma.StringWithAggregatesFilter<"University"> | string
   fullName?: Prisma.StringWithAggregatesFilter<"University"> | string
-  shortName?: Prisma.StringNullableWithAggregatesFilter<"University"> | string | null
+  shortName?: Prisma.StringWithAggregatesFilter<"University"> | string
   slug?: Prisma.StringWithAggregatesFilter<"University"> | string
   cityId?: Prisma.StringWithAggregatesFilter<"University"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"University"> | Date | string
@@ -255,7 +255,7 @@ export type UniversityScalarWhereWithAggregatesInput = {
 export type UniversityCreateInput = {
   universityId?: string
   fullName: string
-  shortName?: string | null
+  shortName: string
   slug: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -265,7 +265,7 @@ export type UniversityCreateInput = {
 export type UniversityUncheckedCreateInput = {
   universityId?: string
   fullName: string
-  shortName?: string | null
+  shortName: string
   slug: string
   cityId: string
   createdAt?: Date | string
@@ -275,7 +275,7 @@ export type UniversityUncheckedCreateInput = {
 export type UniversityUpdateInput = {
   universityId?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
-  shortName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -285,7 +285,7 @@ export type UniversityUpdateInput = {
 export type UniversityUncheckedUpdateInput = {
   universityId?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
-  shortName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   cityId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -295,7 +295,7 @@ export type UniversityUncheckedUpdateInput = {
 export type UniversityCreateManyInput = {
   universityId?: string
   fullName: string
-  shortName?: string | null
+  shortName: string
   slug: string
   cityId: string
   createdAt?: Date | string
@@ -305,7 +305,7 @@ export type UniversityCreateManyInput = {
 export type UniversityUpdateManyMutationInput = {
   universityId?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
-  shortName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -314,7 +314,7 @@ export type UniversityUpdateManyMutationInput = {
 export type UniversityUncheckedUpdateManyInput = {
   universityId?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
-  shortName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   cityId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -406,7 +406,7 @@ export type UniversityUncheckedUpdateManyWithoutCityNestedInput = {
 export type UniversityCreateWithoutCityInput = {
   universityId?: string
   fullName: string
-  shortName?: string | null
+  shortName: string
   slug: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -415,7 +415,7 @@ export type UniversityCreateWithoutCityInput = {
 export type UniversityUncheckedCreateWithoutCityInput = {
   universityId?: string
   fullName: string
-  shortName?: string | null
+  shortName: string
   slug: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -453,7 +453,7 @@ export type UniversityScalarWhereInput = {
   NOT?: Prisma.UniversityScalarWhereInput | Prisma.UniversityScalarWhereInput[]
   universityId?: Prisma.StringFilter<"University"> | string
   fullName?: Prisma.StringFilter<"University"> | string
-  shortName?: Prisma.StringNullableFilter<"University"> | string | null
+  shortName?: Prisma.StringFilter<"University"> | string
   slug?: Prisma.StringFilter<"University"> | string
   cityId?: Prisma.StringFilter<"University"> | string
   createdAt?: Prisma.DateTimeFilter<"University"> | Date | string
@@ -463,7 +463,7 @@ export type UniversityScalarWhereInput = {
 export type UniversityCreateManyCityInput = {
   universityId?: string
   fullName: string
-  shortName?: string | null
+  shortName: string
   slug: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -472,7 +472,7 @@ export type UniversityCreateManyCityInput = {
 export type UniversityUpdateWithoutCityInput = {
   universityId?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
-  shortName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -481,7 +481,7 @@ export type UniversityUpdateWithoutCityInput = {
 export type UniversityUncheckedUpdateWithoutCityInput = {
   universityId?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
-  shortName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -490,7 +490,7 @@ export type UniversityUncheckedUpdateWithoutCityInput = {
 export type UniversityUncheckedUpdateManyWithoutCityInput = {
   universityId?: Prisma.StringFieldUpdateOperationsInput | string
   fullName?: Prisma.StringFieldUpdateOperationsInput | string
-  shortName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  shortName?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -560,7 +560,7 @@ export type $UniversityPayload<ExtArgs extends runtime.Types.Extensions.Internal
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     universityId: string
     fullName: string
-    shortName: string | null
+    shortName: string
     slug: string
     cityId: string
     createdAt: Date

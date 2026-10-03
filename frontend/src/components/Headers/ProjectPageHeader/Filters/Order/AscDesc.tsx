@@ -7,7 +7,9 @@ import { SortOrder } from "../../../../../../../backend/src/generated/prisma/int
 
 type Props = {
     sort: SortValue
-    setSort: (value: SortValue) => void
+    setSort: (value: SortValue) => void,
+
+    type: 'startOfDevelopment' | 'endOfDevelopment'
 }
 
 type Order = {
@@ -22,7 +24,7 @@ const listOrder: Order[] = [
     { id: 2, type: 'desc', text: 'По убыванию', icon: <ChevronDown /> }
 ]
 
-export function AscDesc({ sort, setSort }: Props) {
+export function AscDesc({ sort, setSort, type }: Props) {
     const clickSort = (type: SortOrder) => {
         setSort({ ...sort, order: type })
     }
@@ -33,16 +35,27 @@ export function AscDesc({ sort, setSort }: Props) {
                 listOrder.map((obj, index) => {
                     return (
                         <div key={index} className={cn(
-                            'group w-[200px] py-[5px] bg-[#151515] rounded-2xl',
-                            'hover:scale-101 transition-transform duration-300 cursor-pointer',
-                            'text-white flex justify-center'
+                            'w-[200px] bg-[#151515] rounded-2xl',
+                            'transition-padding duration-300',
+                            'text-white flex justify-center',
+                            sort.order === obj.type
+                                ? 'py-[2px]'
+                                : 'group py-[5px] hover:scale-101 cursor-pointer'
                         )} onClick={() => clickSort(obj.type)}>
                             <div className={cn(
-                                "h-[60px] group-hover:bg-bg rounded-2xl flex justify-center items-center",
-                                obj.id === 2 ? 'flex-col-reverse' : 'flex-col'
+                                "h-[60px] rounded-2xl flex justify-center items-center transition-colors duration-300",
+                                obj.id === 2 ? 'flex-col-reverse' : 'flex-col',
+                                (sort.order === obj.type && sort.field === type)
+                                    ? 'bg-bg'
+                                    : 'group-hover:bg-bg'
                             )}>
                                 {obj.icon}
-                                <div className='w-[190px] text-center'>{obj.text}</div>
+                                <div className={cn(
+                                    'text-center',
+                                    sort.order === obj.type
+                                        ? 'w-[196px]'
+                                        : 'w-[190px]'
+                                )}>{obj.text}</div>
                             </div>
                         </div>
                     )

@@ -7,4 +7,6 @@ model Technology {
     colorText    String? @map("color_text")
 
     projects ProjectTechnology[]
+
+    @@map("technologies")
 }

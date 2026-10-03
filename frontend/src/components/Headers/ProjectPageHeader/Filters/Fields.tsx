@@ -37,8 +37,8 @@ export function Fields({ setSort, sort }: Props) {
                         return (
                             <div key={index} className={cn(
                                 'rounded-2xl transition-transform duration-300 text-center',
-                                sort.field === obj.type 
-                                    ? 'bg-bg py-[13px]' 
+                                sort.field === obj.type
+                                    ? 'bg-bg py-[13px]'
                                     : 'py-[10px]  hover:scale-101 hover:bg-bg cursor-pointer'
                             )} onClick={() => clickField(obj.type)}>{obj.text}</div>
                         )
@@ -47,8 +47,8 @@ export function Fields({ setSort, sort }: Props) {
             </div>
             <div className={cn(
                 'bg-[#151515] rounded-2xl text-white text-center',
-                sort.field === 'status' 
-                    ? 'p-[2px]' 
+                sort.field === 'status'
+                    ? 'p-[2px]'
                     : 'group p-[5px] hover:scale-101 cursor-pointer '
             )} onClick={() => clickField('status')}>
                 <div className={cn(
@@ -60,13 +60,16 @@ export function Fields({ setSort, sort }: Props) {
                 </div>
             </div>
             <div className={cn(
-                'group bg-[#151515] rounded-2xl text-white',
-                'hover:scale-101 p-[5px]',
-                'cursor-pointer',
-                'text-center',
-                sort.field === 'status' && 'bg-[#151515]'
+                'bg-[#151515] rounded-2xl text-white text-center',
+                sort.field === 'technologies'
+                    ? 'p-[2px]'
+                    : 'group p-[5px] hover:scale-101 cursor-pointer '
             )} onClick={() => clickField('technologies')}>
-                <div className='py-[10px] group-hover:bg-bg rounded-2xl transition-transform duration-300 '>
+                <div className={cn(
+                    'group-hover:bg-bg rounded-2xl transition-transform duration-300',
+                    sort.field === 'technologies' ? 'bg-bg' : 'hover:scale-101 hover:bg-bg cursor-pointer',
+                    sort.field === 'technologies' ? 'py-[13px]' : 'py-[10px]'
+                )}>
                     По технологиям
                 </div>
             </div>

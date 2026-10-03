@@ -5,7 +5,7 @@ model University {
     shortName String @map("short_name")
     slug      String @unique
 
-    cityId String @map("cuty_id")
+    cityId String @map("city_id")
     city   City   @relation(fields: [cityId], references: [cityId])
 
     createdAt DateTime @default(now()) @map("created_at")
@@ -26,5 +26,5 @@ model City {
     createdAt DateTime @default(now()) @map("created_at")
     updatedAt DateTime @updatedAt @map("updated_at")
 
-    @@map("cityes")
+    @@map("cities")
 }

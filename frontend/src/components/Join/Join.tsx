@@ -4,19 +4,27 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
 import { projectFormSchema, type ProjectFormData } from '@/lib/schemas';
+import { University } from './University';
+import { InputForForm } from '../UI/InputForForm';
 import { cn } from '@/lib/utils';
+import { City } from './City/City';
 
 export function Join() {
+    const defaultValues = {
+        FIO: '',
+        linkToTG: '',
+        linkToVK: '',
+        linkToWorks: ''
+    }
+
     const {
-        register,
         handleSubmit,
-        formState: { errors, isSubmitting },
+        formState,
+        control
     } = useForm<ProjectFormData>({
         resolver: zodResolver(projectFormSchema),
-        mode: 'onBlur',
-        defaultValues: {
-            FIO: '',
-        },
+        mode: 'onTouched',
+        defaultValues,
     });
 
     const onSubmit = async (data: ProjectFormData) => {
@@ -24,17 +32,24 @@ export function Join() {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} >
-            <div className="text-center">
-                <div className='text-[36px] text-white'>ФИО <span className='text-red-600 text-[36px]'>*</span></div>
-                <input {...register('FIO')} placeholder='Введите свое ФИО' className={cn(
-                    'border border-white rounded-2xl py-[10px] px-[20px] w-[600px] text-white text-[20px]',
-                    'focus:outline-0'
-                )} />
-                {errors.FIO && <p className="text-red-500 font-light mt-[5px]">{errors.FIO.message}</p>}
-            </div>
-            <button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? 'Отправка...' : 'Создать проект'}
+        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-y-[40px]'>
+            <InputForForm name="FIO" width={600} control={control}
+                placeholder="Введите свое ФИО" title='ФИО'
+            />
+            <City />
+            {/* <University /> */}
+            <InputForForm name='linkToVK' width={600} control={control}
+                placeholder='https://vk.com/username' title='Ссылка на VK' />
+            <InputForForm name='linkToTG' width={600} control={control}
+                placeholder='https://t.me/username или @username' title='Ссылка на TG' />
+            <InputForForm name='linkToGitHub' width={600} control={control} necessarily={false}
+                placeholder='https://github.com/username' title='Ссылка на ваш GitHub' />
+            <button type="submit" disabled={formState.isSubmitting}
+                className={cn(
+                    'text-[36px] bg-white rounded-2xl w-[500px] mx-auto mb-[100px] mt-[50px]',
+                    'hover:translate-y-[-3px] transition-transform duration-300 cursor-pointer'
+                )}>
+                {formState.isSubmitting ? 'Отправка...' : 'Отправить заявку!'}
             </button>
         </form>
     )

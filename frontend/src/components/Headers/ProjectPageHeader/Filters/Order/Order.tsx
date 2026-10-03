@@ -9,11 +9,11 @@ type Props = {
 }
 
 export function Order({ sort, setSort }: Props) {
-        switch (sort.field) {
-            case 'status': return <Status setSort={setSort} sort={sort} />
-            case 'endOfDevelopment':
-            case 'startOfDevelopment': return <AscDesc setSort={setSort} sort={sort} />
-            case 'technologies': return <Technologies setSort={setSort} sort={sort}  />
-            default: return null
-        }
+    switch (sort.field) {
+        case 'status': return <Status setSort={setSort} sort={sort} />
+        case 'endOfDevelopment': return <AscDesc setSort={setSort} sort={sort} type="endOfDevelopment" />
+        case 'startOfDevelopment': return <AscDesc setSort={setSort} sort={sort} type="startOfDevelopment" />
+        case 'technologies': return <Technologies setSort={setSort} sort={sort} />
+        default: return null
+    }
 }

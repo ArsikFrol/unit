@@ -1,8 +1,9 @@
+import { Check, Clock } from "lucide-react"
+
 import { cn } from "@/lib/utils"
 import { SortValue } from "../Filters"
 import { type Status } from "@/types/project"
 import { JSX } from "react/jsx-runtime"
-import { Check, Clock } from "lucide-react"
 
 type Props = {
     sort: SortValue
@@ -16,10 +17,14 @@ type OrderStatus = {
 }
 
 const listStatus: OrderStatus[] = [
-    { id: 1, status: 'COMPLETED', text: 
-        <div className="flex items-center justify-center gap-x-[10px]">Выполнен <Check color="green"/></div> },
-    { id: 2, status: 'IN_DEVELOPMENT', text: 
-        <div className="flex items-center justify-center gap-x-[10px]">В разработке <Clock /></div> },
+    {
+        id: 1, status: 'COMPLETED', text:
+            <div className="flex items-center justify-center gap-x-[10px]">Выполнен <Check color="green" /></div>
+    },
+    {
+        id: 2, status: 'IN_DEVELOPMENT', text:
+            <div className="flex items-center justify-center gap-x-[10px]">В разработке <Clock /></div>
+    },
 ]
 
 export function Status({ sort, setSort }: Props) {
